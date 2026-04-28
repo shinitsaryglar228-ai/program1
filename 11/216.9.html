@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>104</title>
+<script>
+let num = 12345;
+let res = getDigitsSum(num);
+console.log(res); // Выведет 15
+
+function getDigitsSum(num) {
+	let str = String(num);
+	let arr = str.split('');
+	let sum = 0;
+	
+	for (let elem of arr) {
+		sum += Number(elem);
+	}
+	
+	return sum;
+}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

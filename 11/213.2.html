@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>104</title>
+<script>
+function isPositive(num) {
+	let str = String(Math.abs(num)); 
+	
+	for (let digit of str) {
+		if (digit % 2 === 0) {
+			return false; 
+		}
+	}
+	
+	return true; 
+}
+
+console.log(isPositive(1357)); 
+console.log(isPositive(1347)); 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

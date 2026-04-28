@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>104</title>
+<script>
+function func(arr) {
+	let sum = 0;
+	for (let elem of arr) {
+		sum += elem;
+	}
+	return sum;
+}
+
+function func(arr1, arr2) {
+	let res1 = func(arr1);
+	let res2 = func(arr2);
+	
+	return res1 / res2;
+}
+
+console.log(func([1, 2, 3], [1, 2]));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
