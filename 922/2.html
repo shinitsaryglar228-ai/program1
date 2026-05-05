@@ -1,0 +1,70 @@
+Вот полный HTML/CSS код, максимально приближенный к макету.
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+
+<div class="card">
+    <h2>Responsive Registration Form</h2>
+
+    <div class="input-group">
+        <span>✉️</span>
+        <input type="email" placeholder="Email">
+    </div>
+
+    <div class="input-group">
+        <span>🔒</span>
+        <input type="password" placeholder="Password">
+    </div>
+
+    <div class="input-group">
+        <span>🔒</span>
+        <input type="password" placeholder="Re-type Password">
+    </div>
+
+    <div class="row">
+        <div class="input-group">
+            <span>👤</span>
+            <input type="text" placeholder="First Name">
+        </div>
+        <div class="input-group">
+            <span>👤</span>
+            <input type="text" placeholder="Last Name"
+            >
+        </div>
+    </div>
+
+    <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="gender"> Male</label>
+        <label class="radio-item"><input type="radio" name="gender"> Female</label>
+    </div>
+
+    <div class="input-group">
+        <select>
+            <option value="" disabled selected>Select a country</option>
+            <option>USA</option>
+            <option>Russia</option>
+            <option>Germany</option>
+        </select>
+    </div>
+
+    <div class="checkbox-group">
+        <label class="checkbox-item">
+            <input type="checkbox"> I agree with terms and conditions
+        </label>
+        <label class="checkbox-item">
+            <input type="checkbox"> I want to receive the newsletter
+        </label>
+    </div>
+
+    <button class="btn-register">Register</button>
+</div>
+
+</body>
+</html>
