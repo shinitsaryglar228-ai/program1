@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-4.0.0.min (1).js"></script>
+	</head>
+	<body>
+		<p id="aaa">text1</p>
+		<p id="bbb">text2</p>
+		<p id="ccc">text3</p>
+		<script>
+			$('p').map(function(index) {
+				$(this).attr('id', index);
+			});
+		</script>
+	</body>
+</html>
