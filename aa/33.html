@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>Первый пункт</li>
+        <li>Второй пункт</li>
+        <li>Третий пункт</li>
+    </ul>
+
+    <a href="https://google.com">Google</a> <br>
+    <a href="https://apple.com">Apple</a> <br>
+    <a href="https://github.com">GitHub</a>
+    <script>
+        $('li').attr('class', 'test');
+
+        $('a').attr('href', '!');
+
+        $('a').attr('target', '_blank');
+
+        $('a').each(function () {
+            let currentHref = $(this).attr('href');
+            $(this).html(currentHref);
+        });
+
+        $('a').each(function () {
+            let currentHref = $(this).attr('href');
+            $(this).html('(' + currentHref + ')');
+        });
+
+        $('a').each(function () {
+            let text = $(this).html();
+            $(this).attr('title', text);
+        });
+    </script>
+</body>
+
+</html>

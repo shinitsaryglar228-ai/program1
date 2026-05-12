@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>Старый текст 1</li>
+        <li>Старый текст 2</li>
+        <li>Старый текст 3</li>
+        <li>Старый текст 4</li>
+    </ul>
+    <script>
+       $('li').each(function(index) {
+                $(this).text(index);
+            });
+    </script>
+</body>
+
+</html>

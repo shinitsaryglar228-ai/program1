@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+    <img id="www" src="image1.jpg" width="100">
+
+    <hr>
+    <p>
+        <a class="www" href="https://google.com">Перейти в Google</a>
+    </p>
+
+    <hr>
+
+    <img src="image2.jpg" width="100">
+    <img src="image3.jpg" width="100">
+
+    <hr>
+
+    <p></p>
+    <a href="https://yandex.ru">Яндекс</a> <br>
+    <a href="https://github.com">GitHub</a>
+
+    <script>
+        alert($('#www').attr('src'));
+        alert($('.www').attr('href'));
+        $('img').each(function () {
+            alert('src картинки: ' + $(this).attr('src'));
+        });
+        $('a').each(function () {
+            alert('href ссылки: ' + $(this).attr('href'));
+        });
+    </script>
+</body>
+
+</html>

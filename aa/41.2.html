@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+
+    <input type="text" class="number" value="5">
+    <input type="text" class="number" value="10">
+
+    <script>
+$('input.number').val(function(index, value) {
+	return value * value;
+});
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+    <h2>Заголовок 1</h2>
+    <p>Какой-то текст под ним.</p>
+    <h2>Заголовок 2</h2>
+    <script>
+        $('h2').each(function () {
+            $(this).contents().replaceAll(this);
+        });
+    </script>
+</body>
+
+</html>

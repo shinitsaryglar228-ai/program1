@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+
+    <p id="aaa">text1</p>
+    <p id="bbb">text2</p>
+    <p id="ccc">text3</p>
+
+    <script>
+        alert(
+  $('p').map(function(index) {
+    this.id = index + 1;
+    return this.id;
+  }).get().join(', ')
+);
+    </script>
+</body>
+
+</html>

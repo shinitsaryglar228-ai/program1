@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+    <input type="text" value="Первый">
+    <input type="text" value="Второй">
+
+    <input type="text" class="number" value="5">
+    <input type="text" class="number" value="10">
+
+
+    <input type="text" class="in" value="Секретный текст">
+
+    <textarea class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi blanditiis maiores nesciunt et hic similique a cumque maxime distinctio qui aut numquam aspernatur, accusamus error, quod, nihil fuga architecto sequi!</textarea>
+
+    <script>
+
+        $('input').val('!');
+
+        alert($('.in').val());
+
+        $('input').each(function () {
+            alert($(this).val());
+        });
+
+        alert($('textarea.text').val());
+    </script>
+
+</body>
+
+</html>
