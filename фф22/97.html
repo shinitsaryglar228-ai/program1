@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        a { display: block; margin: 10px 0; font-size: 18px; text-decoration: none; color: #0056b3; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <a href="https://google.com">Перейти в Google</a>
+    <a href="https://yandex.ru">Перейти в Яндекс</a>
+    <a href="/docs">Документация</a>
+
+    <script>
+    $(function() {
+        $('a').mouseenter(function() {
+            let href = $(this).attr('href');
+            $(this).append(' (' + href + ')');
+        });
+    });
+    </script>
+</body>
+</html>

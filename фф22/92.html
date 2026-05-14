@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+<span>fdgdf</span>
+<span>fdgdf</span>
+<span>fdgdf</span>
+<span></span>
+<span>fdgd</span>
+    <script>
+const spanTexts = $('span').map(function(){
+const text = $ (this).text().trim();
+if (text.length === 0) {
+    return text;
+}
+return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+}).get();
+console.log(spanTexts.join(', '));
+    </script>
+</body>
+
+</html>

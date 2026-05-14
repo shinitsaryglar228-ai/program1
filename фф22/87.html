@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+    <b class="www">
+        <span class="test">txt</span>
+    </b>
+
+    <br><br>
+
+    <b class="www">
+        <i class="test">txt</i>
+    </b>
+
+    <script>
+      $('b.www')
+                .css('color', 'red')
+                .find('.test')
+                .css('font-size', '30px');
+    </script>
+</body>
+
+</html>

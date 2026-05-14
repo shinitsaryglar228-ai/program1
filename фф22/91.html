@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+<p class="www">text</p>
+    <script>
+            $('.www')
+                .clone()
+                .css('color', 'red')
+                .text('???')
+                .insertBefore('.www');
+    </script>
+</body>
+
+</html>

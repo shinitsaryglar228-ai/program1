@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+ <div class="www">
+        <p>test</p>
+    </div>
+
+    <p>txt</p>
+
+    <div class="www">
+        <p>test</p>
+    </div>
+    <script>
+            $('.www')
+                .css('color', 'red')
+                .find('p')
+                .append('!');
+
+    </script>
+</body>
+
+</html>

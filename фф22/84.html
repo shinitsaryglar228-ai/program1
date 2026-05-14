@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <p>test <b>txt</b></p>
+    </div>
+
+    <div class="outer-div">
+        <div>
+            <span>test<b>txt</b></span>
+        </div>
+    </div>
+
+    <script>
+       $('b').closest('div').css('color', 'red');
+    </script>
+</body>
+
+</html>

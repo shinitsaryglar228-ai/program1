@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+    <ul>
+     <ul>
+        <li class="test">txt</li>
+        <li> txt</li>
+        <li> txt </li>
+        <li>txt<li>
+        <li> txt</li>
+        <li class="www"> txt</li>
+    </ul>
+
+    <script>
+     $('.www').prevUntil('.test').html('!');
+    </script>
+</body>
+
+</html>

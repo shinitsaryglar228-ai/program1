@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+    <div class="test">
+        <div>
+            <p class="test">
+                <span>txt<b>txt</b></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="no-test">
+        <p>
+            <span>txt<b>txt</b></span>
+        </p>
+    </div>
+    <script>
+       $('b').parents('.test').css('color', 'red');
+    </script>
+</body>
+
+</html>
