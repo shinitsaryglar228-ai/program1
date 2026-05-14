@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="jquery-4.0.0.min (1).js"></script>
+
+    <style>
+        div {
+            border: 2px solid red;
+            margin: 10px 0;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Первый заголовок</h3>
+    <p>Текст под первым заголовком.</p>
+
+    <h3>Второй заголовок</h3>
+    <p>Текст под вторым заголовком.</p>
+
+    <script>
+        $(document).ready(function() {
+            $('h3').wrap('<div>');
+        });
+    </script>
+</body>
+</html>

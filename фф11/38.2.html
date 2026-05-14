@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-4.0.0.min (1).js"></script>
+	</head>
+
+	<body>
+		    <input type="checkbox" checked> Первый 
+    <input type="checkbox"> Второй 
+    <input type="checkbox" checked> Третий 
+    <input type="checkbox"> Четвертый 
+		<script>
+	$('input[type="checkbox"]:not(:checked)').prop('checked', true);
+		</script>
+	</body>
+</html>

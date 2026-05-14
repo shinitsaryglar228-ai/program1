@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <p>Этот абзац останется, а div вокруг него исчезнет.</p>
+    </div>
+
+    <p>
+        <span>Этот span останется, а p вокруг него исчезнет.</span>
+    </p>
+    <script>
+        $('p').unwrap('div');
+        $('span').unwrap('p');
+    </script>
+
+</body>
+
+</html>

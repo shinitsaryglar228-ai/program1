@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+    <h2>Первый заголовок</h2>
+    <p>Текст</p>
+    <h2>Второй заголовок</h2>
+
+    <script>
+        $('h2').replaceWith(function () {
+            return $(this).html();
+        });
+        $('h2').replaceWith(function () {
+            return '<p>' + $(this).html() + '</p>';
+        });
+    </script>
+</body>
+
+</html>

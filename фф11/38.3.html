@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery-4.0.0.min (1).js"></script>
+	</head>
+
+	<body>
+        <br>
+	<input type="checkbox" checked> Первый <br>
+    <input type="checkbox"> Второй <br>
+    <input type="checkbox" checked> Третий <br>
+    <input type="checkbox"> Четвертый <br>
+
+    <br>
+		<script>
+	$('input[type="checkbox"]').prop('checked', function(index, currentValue) {
+    return !currentValue;
+});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+<style>
+div {
+margin: 10px;
+padding: 5px;
+border: 2px solid green;
+}
+#wrapper {
+border-color: blueviolet;
+}
+</style>
+
+<body>
+<div id="wrapper">
+<div id="test">text</div>
+</div>
+<p id="one"></p>
+<p id="two"></p>
+<p id="three"></p>
+<p id="four"></p>
+    <script>
+    let width1 = $('#wrapper').width(100);
+            let height1 = $('#wrapper').height(250);
+            $('#one').text('Ширина: ' + width1 + 'px, Высота: ' + height1 + 'px');
+
+            let width2 = $('#wrapper').innerWidth(100);
+            let height2 = $('#wrapper').innerHeight(100);
+            $('#two').text('Ширина (с padding): ' + width2 + 'px, Высота (с padding): ' + height2 + 'px');
+    </script>
+</body>
+
+</html>
