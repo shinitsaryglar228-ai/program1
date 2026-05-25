@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Игра угадай ячейку</title>
+    <style>
+        /* Делаем ячейки видимыми квадратиками */
+        td {
+            width: 30px; 
+            height: 30px; 
+            border: 1px solid black; /* черная рамка */
+            background-color: #eee;   /* светло-серый цвет, чтобы их было видно */
+            cursor: pointer;
+        }
+        table {
+            border-collapse: collapse; /* чтобы рамки не двоились */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Осталось времени: <span id="timer">60</span> секунд</h2>
+    <p>Нужно найти 10 секретных ячеек!</p>
+    
+    <table id="pole"></table>
+    
+    <h2 id="result"></h2>
+
+    <script>
+        let pole = document.querySelector('#pole');
+        let timerShow = document.querySelector('#timer');
+        let resultShow = document.querySelector('#result');
+        
+        let time = 60;
+        let count = 0;
+        let gameStop = false;
+
+        // Таймер
+        let timerId = setInterval(function() {
+            time = time - 1;
+            timerShow.textContent = time;
+
+            if (time <= 0) {
+                clearInterval(timerId);
+                gameStop = true;
+                if (count < 10) {
+                    resultShow.textContent = 'Вы проиграли! Время вышло.';
+                }
+            }
+        }, 1000);
+
+        for (let i = 0; i < 10; i++) {
+            let tr = document.createElement('tr');
+            
+            for (let j = 0; j < 10; j++) {
+                let td = document.createElement('td');
+    
+                if (Math.random() < 0.15 && count < 10) {
+                    td.className = 'secret'; 
+                }
+
+                td.onclick = function() {
+                    if (gameStop == true) return; 
+
+                    if (this.className == 'secret') {
+                        this.style.backgroundColor = 'green'; // угадал
+                        this.className = ''; 
+                        count = count + 1;
+                        
+                        if (count == 10) {
+                            resultShow.textContent = 'ПОБЕДА! Все нашли!';
+                            clearInterval(timerId);
+                            gameStop = true;
+                        }
+                    } else {
+
+                        if (this.style.backgroundColor != 'green') {
+                            this.style.backgroundColor = 'red'; 
+                        }
+                    }
+                };
+                
+                tr.appendChild(td);
+            }
+            pole.appendChild(tr);
+        }
+    </script>
+
+</body>
+</html>

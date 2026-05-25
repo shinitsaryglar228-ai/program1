@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+    <input id="num3">
+<button id="btn3">Показать делители</button>
+<p id="res3"></p>
+
+<script>
+let btn3 = document.querySelector('#btn3');
+btn3.onclick = function() {
+    let n = Number(document.querySelector('#num3').value);
+    let out = '';
+    for (let i = 1; i <= n; i++) {
+        if (n % i == 0) {
+            out = out + i + ' '; 
+        }
+    }
+    document.querySelector('#res3').textContent = 'Делители: ' + out;
+};
+</script>
+</body>
+</html>
+</body>
+</html>

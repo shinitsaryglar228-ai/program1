@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Чеклист</title>
+	<style>
+		body {
+			text-align: center;
+			font-family: sans-serif;
+			padding-top: 20px;
+		}
+		#input {
+			padding: 5px;
+			width: 250px;
+		}
+		#list {
+			padding: 0;
+			list-style-type: none;
+		}
+		#list li {
+			margin-top: 10px;
+			font-size: 18px;
+		}
+		.remove, .mark {
+			color: blue;
+			cursor: pointer;
+			text-decoration: underline;
+			margin-left: 10px;
+			font-size: 14px;
+		}
+		/* Класс для выполненного дела */
+		#list .done span {
+			text-decoration: line-through;
+			color: gray;
+		}
+	</style>
+</head>
+<body>
+
+	<input id="input" placeholder="">
+	<ul id="list"></ul>
+
+	<script>
+		let input = document.querySelector('#input');
+		let list = document.querySelector('#list');
+
+		input.addEventListener('keypress', function(event) {
+			if (event.key == 'Enter' && this.value.trim() !== '') {
+				let li = document.createElement('li');
+
+				let taskText = document.createElement('span');
+				taskText.textContent = this.value;
+				li.appendChild(taskText);
+
+				let remove = document.createElement('span');
+				remove.classList.add('remove');
+				remove.textContent = 'удалить';
+				remove.addEventListener('click', function() {
+					li.remove();
+				});
+				li.appendChild(remove);
+
+				let mark = document.createElement('span');
+				mark.classList.add('mark');
+				mark.textContent = 'сделано';
+				mark.addEventListener('click', function() {
+					li.classList.toggle('done');
+				});
+				li.appendChild(mark);
+
+				list.appendChild(li);
+				this.value = '';
+			}
+		});
+	</script>
+
+</body>
+</html>

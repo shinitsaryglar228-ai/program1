@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* кнопки клавы */
+        .key {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            border: 1px solid black;
+            margin: 2px;
+            text-align: center;
+            line-height: 35px;
+            cursor: pointer;
+            background-color: #eee;
+        }
+        /* Стиль капс лука */
+        .active {
+            background-color: #ccc;
+            font-weight: bold;
+        }
+        #myInput {
+            width: 300px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <input id="myInput" type="text" placeholder="Кликай по кнопкам">
+    <br>
+
+    <div id="keyboard">
+        <!-- Цифры -->
+        <div class="key">1</div><div class="key">2</div><div class="key">3</div><div class="key">4</div><div class="key">5</div>
+        <div class="key">6</div><div class="key">7</div><div class="key">8</div><div class="key">9</div><div class="key">0</div>
+        <br>
+        <!-- Буквы (основные) -->
+        <div class="key">q</div><div class="key">w</div><div class="key">e</div><div class="key">r</div><div class="key">t</div>
+        <div class="key">y</div><div class="key">u</div><div class="key">i</div><div class="key">o</div><div class="key">p</div>
+        <br>
+        <div class="key">a</div><div class="key">s</div><div class="key">d</div><div class="key">f</div><div class="key">g</div>
+        <div class="key">h</div><div class="key">j</div><div class="key">k</div><div class="key">l</div>
+        <br>
+        <div class="key">z</div><div class="key">x</div><div class="key">c</div><div class="key">v</div><div class="key">b</div>
+        <div class="key">n</div><div class="key">m</div>
+        <br><br>
+        <!-- Капс лок -->
+        <div id="caps" class="key" style="width: 80px;">Caps</div>
+    </div>
+
+    <script>
+        let input = document.querySelector('#myInput');
+        let keys = document.querySelectorAll('.key');
+        let capsBtn = document.querySelector('#caps');
+        
+        let isCaps = false; 
+
+
+        for (let i = 0; i < keys.length; i++) {
+            keys[i].onclick = function() {
+                
+
+                if (this.id == 'caps') {
+                    isCaps = !isCaps;
+                    this.classList.toggle('active'); 
+                } else {
+                    // Берем текст из кнопки
+                    let text = this.textContent;
+                    if (isCaps == true) {
+                        input.value = input.value + text.toUpperCase();
+                    } else {
+                        input.value = input.value + text.toLowerCase();
+                    }
+                }
+            };
+        }
+    </script>
+</body>
+</html>

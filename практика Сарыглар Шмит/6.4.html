@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Линейный календарь</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    .controls {
+      margin-bottom: 15px;
+    }
+    .controls a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #007BFF;
+      font-weight: bold;
+    }
+    h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    li {
+      padding: 6px 12px;
+      background: #e0e0e0;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .today {
+      background: #4CAF50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<div class="controls">
+  <a href="#" id="prev">← Назад</a>
+  <h2 id="month-year"></h2>
+  <a href="#" id="next">Вперёд →</a>
+</div>
+
+<ul id="calendar"></ul>
+
+<script>
+  let currentYear = new Date().getFullYear();
+  let currentMonth = new Date().getMonth(); 
+
+  const monthNames = [
+    'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+    'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+  ];
+
+  const monthYearEl = document.getElementById('month-year');
+  const calendarEl = document.getElementById('calendar');
+
+  function renderCalendar(year, month) {
+    monthYearEl.textContent = `${monthNames[month]} ${year}`;
+
+    calendarEl.innerHTML = '';
+
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    const today = new Date();
+    const isCurrentMonth = (year === today.getFullYear() && month === today.getMonth());
+    const todayDay = isCurrentMonth ? today.getDate() : null;
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const li = document.createElement('li');
+      li.textContent = day;
+
+      if (isCurrentMonth && day === todayDay) {
+        li.classList.add('today');
+      }
+
+      calendarEl.appendChild(li);
+    }
+  }
+
+  document.getElementById('prev').addEventListener('click', (e) => {
+    e.preventDefault();
+    currentMonth--;
+    if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+    }
+    renderCalendar(currentYear, currentMonth);
+  });
+
+  document.getElementById('next').addEventListener('click', (e) => {
+    e.preventDefault();
+    currentMonth++;
+    if (currentMonth > 11) {
+        currentMonth = 0; 
+        currentYear++;
+    }
+    renderCalendar(currentYear, currentMonth);
+  });
+
+  renderCalendar(currentYear, currentMonth);
+</script>
+
+</body>
+</html>

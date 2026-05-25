@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+    <input id="n6_1"> <input id="n6_2">
+<button id="btn6">Найти НОК</button>
+<p id="res6"></p>
+<script>
+let btn6 = document.querySelector('#btn6');
+btn6.onclick = function() {
+    let a = Number(document.querySelector('#n6_1').value);
+    let b = Number(document.querySelector('#n6_2').value);
+    for (let i = 1; i <= a * b; i++) {
+        if (i % a == 0 && i % b == 0) {
+            document.querySelector('#res6').textContent = 'НОК: ' + i;
+            break;
+        }
+    }
+};
+</script>
+</body>
+</html>
+</body>
+</html>

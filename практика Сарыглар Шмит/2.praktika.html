@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>911</title>
+<script>
+let a = Number(document.querySelector('#a').value);
+let b = Number(document.querySelector('#b').value);
+let c = Number(document.querySelector('#c').value);
+let d = b * b - 4 * a * c; 
+if (d > 0) {
+    let x1 = (-b + Math.sqrt(d)) / (2 * a);
+    let x2 = (-b - Math.sqrt(d)) / (2 * a);
+    console.log('Два корня: ' + x1 + ' и ' + x2);
+} else if (d == 0) {
+    let x = -b / (2 * a);
+    console.log('Один корень: ' + x);
+} else {
+    console.log('Корней нет');
+}
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

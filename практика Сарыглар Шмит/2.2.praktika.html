@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+    <input id="p1"> <input id="p2"> <input id="p3">
+<button id="btn2">Проверить</button>
+<p id="res2"></p>
+
+<script>
+let btn2 = document.querySelector('#btn2');
+btn2.onclick = function() {
+    let n1 = Number(document.querySelector('#p1').value);
+    let n2 = Number(document.querySelector('#p2').value);
+    let n3 = Number(document.querySelector('#p3').value);
+    let display = document.querySelector('#res2');
+
+    if (n1*n1 == n2*n2+n3*n3 || n2*n2 == n1*n1+n3*n3 || n3*n3 == n1*n1+n2*n2) {
+        display.textContent = 'Да, это тройка Пифагора';
+    } else {
+        display.textContent = 'Нет';
+    }
+};
+</script>
+</body>
+</html>

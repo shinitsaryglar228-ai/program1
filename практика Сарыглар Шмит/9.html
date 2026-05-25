@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Гороскоп на сегодня</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #34495e;
+      margin-bottom: 25px;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .radio-group {
+      margin-bottom: 25px;
+    }
+
+    .radio-group label {
+      margin-right: 20px;
+      font-size: 15px;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      line-height: 1.5;
+      min-height: 80px; 
+    }
+
+    .error {
+      color: #c0392b; 
+    }
+
+    .horoscope {
+       color: #2c3e50; 
+       background-color: #ecf0f1; 
+       padding: 15px;
+       border-radius: 8px;
+       border-left: 4px solid #3498db;
+    }
+
+     button {
+       padding: 12px 25px;
+       font-size: 16px;
+       background-color: #3498db;
+       color: white;
+       border: none;
+       border-radius: 6px;
+       cursor: pointer;
+       transition: background-color 0.3s ease;
+     }
+
+     button:hover {
+       background-color: #2980b9;
+     }
+
+     button:focus {
+       outline: none;
+     }
+
+     button[disabled] {
+       background-color: #bdc3c7;
+       cursor: not-allowed;
+     }
+
+     .sign-title {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #2980b9;
+     }
+
+     .date-label {
+        font-style: italic;
+        font-size: 14px;
+        margin-bottom: 15px;
+        color: #7f8c8d;
+     }
+
+   </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Ваш личный гороскоп</h1>
+  
+  <label for="birthdate">Введите дату рождения:</label>
+  <input type="date" id="birthdate" required>
+  
+  <div class="radio-group">
+    <label>
+      <input type="radio" name="day" value="сегодня" checked> Сегодня
+    </label>
+    <label>
+      <input type="radio" name="day" value="завтра"> Завтра
+    </label>
+    <label>
+      <input type="radio" name="day" value="послезавтра"> Послезавтра
+    </label>
+   </div>
+   
+   <button id="get-horoscope-btn">Получить гороскоп</button>
+
+   <div id="result"></div>
+</div>
+
+<script>
+const horoscopes = {
+   "Овен": {
+     "сегодня": "Овны, сегодня вас ждет успех в делах, которые вы давно откладывали. Действуйте смело!",
+     "завтра": "Завтра возможны неожиданные встречи. Будьте открыты к новым знакомствам — это может быть полезно.",
+     "послезавтра": "Послезавтра звезды советуют уделить время отдыху и восстановлению сил. Не перегружайте себя."
+   },
+   "Телец": {
+     "сегодня": "Тельцы, сегодня ваше упрямство поможет довести важное дело до конца. Не сдавайтесь!",
+     "завтра": "Завтра не стоит принимать финансовые решения на скорую руку. Внимательно изучите документы.",
+     "послезавтра": "Послезавтра вас ждет приятный сюрприз от близкого человека. Вечер обещает быть уютным."
+   },
+   "Близнецы": {
+     "сегодня": "Близнецы, сегодня вам предстоит много общаться. Ваша коммуникабельность будет на высоте.",
+     "завтра": "Завтра может возникнуть желание сменить обстановку. Небольшое путешествие пойдет на пользу.",
+     "послезавтра": "Послезавтра интуиция подскажет верное решение в сложной ситуации. Доверьтесь ей."
+   },
+};
+
+const birthdateInput = document.getElementById('birthdate');
+const resultDiv = document.getElementById('result');
+const getBtn = document.getElementById('get-horoscope-btn');
+const radios = document.querySelectorAll('input[name="day"]');
+let selectedDay = 'сегодня';
+
+function getZodiacSign(day, month) {
+   if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return 'Овен';
+   if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return 'Телец';
+   if ((month === 5 && day >= 21) || (month === 6 && day <= 21)) return 'Близнецы';
+   if ((month === 6 && day >= 22) || (month === 7 && day <= 22)) return 'Рак';
+   if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return 'Лев';
+   if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return 'Дева';
+   if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) return 'Весы';
+   if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) return 'Скорпион';
+   if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) return 'Стрелец';
+   if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) return 'Козерог';
+   if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return 'Водолей';
+   if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) return 'Рыбы';
+}
+
+function displayResult(sign, day, text) {
+   resultDiv.innerHTML = `
+     <p class="date-label">Гороскоп для знака <span class="sign-title">${sign}</span> на <span class="sign-title">${day}</span>:</p>
+     <div class="horoscope">${text}</div>
+   `;
+}
+
+getBtn.addEventListener('click', () => {
+   const dateStr = birthdateInput.value;
+   
+   if (!dateStr) {
+     resultDiv.innerHTML = '<p class="error">Пожалуйста, введите дату рождения.</p>';
+     return;
+   }
+   
+   const date = new Date(dateStr);
+   
+   if (isNaN(date.getTime())) {
+     resultDiv.innerHTML = '<p class="error">Введена некорректная дата.</p>';
+     return;
+   }
+   
+   const sign = getZodiacSign(date.getDate(), date.getMonth() + 1);
+   
+   const text = horoscopes[sign][selectedDay];
+   
+   displayResult(sign, selectedDay, text);
+});
+
+radios.forEach(radio => {
+   radio.addEventListener('change', () => {
+     selectedDay = radio.value;
+     if (birthdateInput.value) {
+        getBtn.click(); 
+     }
+   });
+});
+const today = new Date().toISOString().split('T')[0];
+birthdateInput.setAttribute('max', today);
+</script>
+
+</body>
+</html>

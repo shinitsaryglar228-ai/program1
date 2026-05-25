@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+    <input id="n5_1"> <input id="n5_2">
+<button id="btn5">Найти НОД</button>
+<p id="res5"></p>
+<script>
+let btn5 = document.querySelector('#btn5');
+btn5.onclick = function() {
+    let a = Number(document.querySelector('#n5_1').value);
+    let b = Number(document.querySelector('#n5_2').value);
+    let nod = 1;
+    for (let i = 1; i <= a; i++) {
+        if (a % i == 0 && b % i == 0) {
+            nod = i;
+        }
+    }
+    document.querySelector('#res5').textContent = 'НОД: ' + nod;
+};
+</script>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Игра</title>
+</head>
+<body>
+
+    <input id="vvod" placeholder="Число сюда">
+    <button id="knopka">Угадать</button>
+    <p id="text"></p>
+
+    <script>
+ 
+        let komp = Math.floor(Math.random() * 100) + 1;
+ 
+        let knopka = document.querySelector('#knopka');
+        let info = document.querySelector('#text');
+
+
+        knopka.onclick = function() {
+            let ya = Number(document.querySelector('#vvod').value);
+
+            if (ya < komp) {
+                info.textContent = 'Надо больше';
+            } 
+            
+            if (ya > komp) {
+                info.textContent = 'Надо меньше';
+            } 
+            
+            if (ya == komp) {
+                info.textContent = 'Ура, угадал!';
+            }
+        };
+    </script>
+
+</body>
+</html>

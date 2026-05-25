@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+#list span {
+	margin-right: 5px;
+}
+#list .remove, #list .mark {
+	color: blue;
+	cursor: pointer;
+}
+#list .remove:hover, #list .mark:hover {
+	text-decoration: underline;
+}
+		.remove, .done {
+			color: blue;
+			cursor: pointer;
+			text-decoration: underline;
+			margin-left: 10px;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+
+<input id="input" placeholder="">
+<ul id="list"></ul>
+
+<script>
+let input = document.querySelector('#input');
+let list = document.querySelector('#list');
+
+input.addEventListener('keypress', function(event) {
+	if (event.key == 'Enter' && this.value.trim() !== '') {
+		let li = document.createElement('li');
+		
+		let taskText = document.createElement('span');
+		taskText.textContent = this.value;
+		li.appendChild(taskText);
+
+		let remove = document.createElement('span');
+		remove.classList.add('remove');
+		remove.textContent = 'удалить';
+		remove.addEventListener('click', function() {
+			li.remove();
+		});
+		li.appendChild(remove);
+
+		let done = document.createElement('span');
+		done.classList.add('done');
+		done.textContent = 'сделано';
+		done.addEventListener('click', function() {
+			taskText.classList.toggle('completed');
+		});
+		li.appendChild(done);
+
+		list.appendChild(li);
+		this.value = '';
+	}
+});
+</script>
+
+</body>
+</html>

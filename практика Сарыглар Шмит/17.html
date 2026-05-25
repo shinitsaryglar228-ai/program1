@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Игра в города</title>
+</head>
+<body>
+
+<input id="field" placeholder="Введите город">
+<div id="message"></div>
+
+<script>
+let field = document.querySelector('#field');
+let message = document.querySelector('#message');
+
+let allCities = ['абакан', 'анапа', 'брянск', 'белгород', 'волгоград', 'владивосток', 'гусь-хрустальный', 'донецк', 'елец', 'ессентуки']; 
+let usedCities = []; 
+
+field.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        let city = this.value.trim().toLowerCase();
+        this.value = '';
+
+        if (!allCities.includes(city)) {
+            message.textContent = 'Такого города нет в моей базе!';
+            return;
+        }
+        if (usedCities.includes(city)) {
+            message.textContent = 'Этот город уже был!';
+            return;
+        }
+
+        if (usedCities.length > 0) {
+            let lastUsedCity = usedCities[usedCities.length - 1];
+            let neededLetter = getLetter(lastUsedCity);
+
+            if (city[0] !== neededLetter) {
+                message.textContent = `Ошибка! Нужно назвать город на букву ${neededLetter.toUpperCase()}`;
+                return;
+            }
+        }
+
+        usedCities.push(city);
+
+        let robotLetter = getLetter(city); 
+        let robotCity = allCities.find(item => item[0] === robotLetter && !usedCities.includes(item));
+
+        if (robotCity) {
+            usedCities.push(robotCity);
+            message.textContent = `Мой ответ: ${robotCity.toUpperCase()}. Вам на букву ${getLetter(robotCity).toUpperCase()}`;
+        } else {
+            message.textContent = 'Я не знаю города на эту букву. Вы победили!';
+        }
+    }
+});
+function getLetter(str) {
+    let lastChar = str.slice(-1);
+    if (['ь', 'ы', 'ъ'].includes(lastChar)) {
+        return str.slice(-2, -1);
+    }
+    return lastChar;
+}
+
+
+</script>
+
+</body>
+</html>
