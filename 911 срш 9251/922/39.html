@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        #slider {
+            width: 600px;
+            height: 400px;
+            border: 1px solid black;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            margin: 0 10px;
+        }
+        a {
+            text-decoration: none;
+            font-size: 30px;
+            color: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="slider-container">
+	<a href="" id="left">←</a>
+	<img id="slider" src="2023-01-20_08-42-15.png" alt="слайд" width="300">
+	<a href="" id="right">→</a>
+</div>
+
+    <script>
+let images = ['2023-01-20_08-42-15.png', '3.png', '2023-01-20_08-45-33.png'];
+let i = 0;
+
+let slider = document.querySelector('#slider');
+let left = document.querySelector('#left');
+let right = document.querySelector('#right');
+
+function updateSlider() {
+	slider.src = images[i];
+}
+
+updateSlider();
+
+let timer = setInterval(nextSlide, 1000);
+
+function nextSlide() {
+	i++;
+	if (i >= images.length) {
+		i = 0;
+	}
+	updateSlider();
+}
+
+function prevSlide() {
+	i--;
+	if (i < 0) {
+		i = images.length - 1;
+	}
+	updateSlider();
+}
+
+right.addEventListener('click', function(event) {
+	event.preventDefault();
+	nextSlide();
+});
+
+left.addEventListener('click', function(event) {
+	event.preventDefault();
+	prevSlide();
+});
+
+    </script>
+</body>
+</html>

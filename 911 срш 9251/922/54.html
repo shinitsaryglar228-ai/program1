@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание №1</title>
+</head>
+<body>
+
+    <h1>Задание №1 по JavaScript</h1>
+    <p>Результат вывелся в консоль </p>
+
+    <script>
+        function range(count) {
+            var res = [];
+            for (var i = 1; i <= count; i++) {
+                res.push(i);
+            }
+            return res;
+        }
+
+        function getLastDay(year, month) {
+            var date = new Date(year, month + 1, 0);
+            return date.getDate();
+        }
+
+        var currentYear = 2026;
+        var currentMonth = 4; 
+
+        var lastDay = getLastDay(currentYear, currentMonth);
+
+        var resultArray = range(lastDay);
+
+        console.log(resultArray);
+    </script>
+
+</body>
+</html>

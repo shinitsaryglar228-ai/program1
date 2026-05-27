@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <style>
+#test div {
+	margin-bottom: 20px;
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+label {
+	display: block;
+	margin: 5px 0;
+	cursor: pointer;
+}
+
+.right {
+	color: green;
+	font-weight: bold;
+}
+
+.wrong {
+	color: red;
+}
+
+    </style>
+</head>
+<body>
+<div id="test">
+	<div>
+		<p>Вопрос 1: Какой язык программирования мы изучаем?</p>
+		<label><input type="radio" name="1" data-right> JavaScript</label>
+		<label><input type="radio" name="1"> Python</label>
+		<label><input type="radio" name="1"> PHP</label>
+	</div>
+	
+	<div>
+		<p>Вопрос 2: Какой тег создает ссылку?</p>
+		<label><input type="radio" name="2"> &lt;div&gt;</label>
+		<label><input type="radio" name="2" data-right> &lt;a&gt;</label>
+		<label><input type="radio" name="2"> &lt;p&gt;</label>
+	</div>
+
+	<div>
+		<p>Вопрос 3: Какое свойство меняет цвет текста в CSS?</p>
+		<label><input type="radio" name="3"> background</label>
+		<label><input type="radio" name="3"> font-size</label>
+		<label><input type="radio" name="3" data-right> color</label>
+	</div>
+</div>
+<button id="button">Проверить ответы</button>
+<script>
+let button = document.querySelector('#button');
+
+button.addEventListener('click', function() {
+	let divs = document.querySelectorAll('#test div');
+
+	for (let div of divs) {
+		let labels = div.querySelectorAll('label');
+		let checkedRadio = div.querySelector('input[type="radio"]:checked');
+
+		for (let label of labels) {
+			label.classList.remove('right', 'wrong');
+		}
+
+		if (checkedRadio) {
+			if (checkedRadio.hasAttribute('data-right')) {
+				checkedRadio.parentElement.classList.add('right');
+			} else {
+				checkedRadio.parentElement.classList.add('wrong');
+			}
+		}
+	}
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Игра в города</title>
+</head>
+<body>
+
+<input id="field" placeholder="Введите город">
+<div id="message"></div>
+<script>
+let field = document.querySelector('#field');
+let message = document.querySelector('#message');
+
+let cities = [];
+let lastLetter = '';
+
+field.addEventListener('keydown', function(event) {
+
+	if (event.key === 'Enter') {
+
+		let city = field.value.trim().toLowerCase();
+
+		if (city === '') {
+			message.textContent = 'Введите город';
+			return;
+		}
+
+		if (lastLetter !== '' && city[0] !== lastLetter) {
+			message.textContent = 'Нужна буква: ' + lastLetter.toUpperCase();
+			return;
+		}
+
+		if (cities.includes(city)) {
+			message.textContent = 'Этот город уже был';
+			return;
+		}
+
+		cities.push(city);
+
+		let i = city.length - 1;
+		let badLetters = ['ь', 'ъ', 'ы'];
+
+		while (badLetters.includes(city[i])) {
+			i--;
+		}
+
+		lastLetter = city[i];
+
+		message.textContent =
+			'Город принят. Следующая буква: ' +
+			lastLetter.toUpperCase();
+
+		field.value = '';
+	}
+});
+</script>
+</body>
+</html>

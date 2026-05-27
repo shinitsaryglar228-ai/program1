@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>104</title>
+<script>
+ function solve() {
+            let a = +document.getElementById('a').value;
+            let b = +document.getElementById('b').value;
+            let c = +document.getElementById('c').value;
+            let out = document.getElementById('out');
+
+            let d = b * b - 4 * a * c;
+
+            if (d > 0) {
+                let x1 = (-b + Math.sqrt(d)) / (2 * a);
+                let x2 = (-b - Math.sqrt(d)) / (2 * a);
+                out.innerText = "Два корня: x1=" + x1 + ", x2=" + x2;
+            } else if (d === 0) {
+                let x = -b / (2 * a);
+                out.innerText = "Один корень: x=" + x;
+            } else {
+                out.innerText = "Корней нет (D < 0)";
+            }
+        }
+</script>
+</head>
+<body>
+        <h3>Квадратное уравнение: ax² + bx + c = 0</h3>
+    
+    <input type="number" id="a" placeholder="a">
+    <input type="number" id="b" placeholder="b">
+    <input type="number" id="c" placeholder="c">
+    
+    <button onclick="solve()">Решить</button>
+    
+    <p id="out"></p>
+</body>
+</html>

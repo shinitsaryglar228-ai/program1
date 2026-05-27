@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Справочник HTML-тегов</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    #description {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+    }
+    .found {
+      color: #333;
+    }
+    .not-found {
+      color: #d32f2f; 
+      background-color: #ffebee;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Справочник HTML-тегов</h1>
+  <input type="text" id="tagInput" placeholder="Введите имя тега (например, p, div, a)">
+  
+  <div id="description"></div>
+
+  <script>
+    const tags = {
+      p: 'Тег <p> определяет абзац текста.',
+      a: 'Тег <a> создаёт гиперссылку.',
+      div: 'Тег <div> — блочный элемент для группировки контента.',
+      img: 'Тег <img> вставляет изображение.',
+      h1: 'Тег <h1> — заголовок первого уровня.',
+      span: 'Тег <span> — строчный элемент для выделения части текста.',
+      ul: 'Тег <ul> создаёт маркированный (неупорядоченный) список.',
+      li: 'Тег <li> определяет элемент списка.'
+    };
+
+    const input = document.getElementById('tagInput');
+    const descriptionDiv = document.getElementById('description');
+
+    input.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        const tagName = input.value.trim().toLowerCase();
+
+        if (tags.hasOwnProperty(tagName)) {
+          descriptionDiv.innerHTML = tags[tagName];
+          descriptionDiv.className = 'found'; 
+        } else {
+          descriptionDiv.textContent = `Тег "${tagName}" не найден в справочнике.`;
+          descriptionDiv.className = 'not-found'; 
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

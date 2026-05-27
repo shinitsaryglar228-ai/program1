@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная работа: Календарь</title>
+    <style>
+
+        table { 
+            border-collapse: collapse; 
+            font-family: sans-serif; 
+            margin-bottom: 30px;
+        }
+        td, th { 
+            border: 1px solid #ccc; 
+            width: 40px; 
+            height: 40px; 
+            text-align: center; 
+        }
+        th { 
+            background-color: #f2f2f2; 
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        function range(count) {
+            var res = [];
+            for (var i = 1; i <= count; i++) {
+                res.push(i);
+            }
+            return res;
+        }
+
+        function getLastDay(year, month) {
+            var date = new Date(year, month + 1, 0);
+            return date.getDate();
+        }
+
+        function getFirstWeekDay(year, month) {
+            var date = new Date(year, month, 1);
+            return date.getDay();
+        }
+
+        function getLastWeekDay(year, month) {
+            var date = new Date(year, month + 1, 0);
+            return date.getDay();
+        }
+
+        function normalize(arr, left, right) {
+            for (var i = 0; i < left; i++) {
+                arr.unshift('');
+            }
+            for (var j = 0; j < right; j++) {
+                arr.push('');
+            }
+            return arr;
+        }
+
+        function chunk(arr, n) {
+            var result = [];
+            for (var i = 0; i < arr.length; i += n) {
+                result.push(arr.slice(i, i + n));
+            }
+            return result;
+        }
+    </script>
+
+
+
+    <h2>Задание №1: Функция createTable</h2>
+    
+    <table>
+        <thead>
+            <tr><th>Вс</th><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th></tr>
+        </thead>
+        <tbody id="test-body-1">
+
+        </tbody>
+    </table>
+
+    <script>
+        // Сама функция по заданию №1
+        function createTable(parent, arr) {
+            for (var i = 0; i < arr.length; i++) {
+                var tr = document.createElement('tr'); 
+                for (var j = 0; j < arr[i].length; j++) {
+                    var td = document.createElement('td'); 
+                    td.textContent = arr[i][j]; 
+                    tr.appendChild(td); 
+                }
+                
+                parent.appendChild(tr); 
+            }
+        }
+
+        var testBody1 = document.getElementById('test-body-1');
+        
+        var testYear = 2026;
+        var testMonth = 4; // Май
+        
+        var testArr = range(getLastDay(testYear, testMonth));
+        var testFirstWeekDay = getFirstWeekDay(testYear, testMonth);
+        var testLastWeekDay  = getLastWeekDay(testYear, testMonth);
+        
+        var testNums = chunk(normalize(testArr, testFirstWeekDay, 6 - testLastWeekDay), 7);
+        
+
+        createTable(testBody1, testNums);
+    </script>
+</body>
+</html>

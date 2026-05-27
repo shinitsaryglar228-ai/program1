@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Колесо Судьбы</title>
+  <style>
+    #parent {
+      text-align: center;
+      margin-top: 50px;
+    }
+    #parent > * {
+      margin-bottom: 10px;
+    }
+
+    #timer {
+      font-size: 48px;
+      font-weight: bold;
+      letter-spacing: 5px;
+      min-height: 60px;
+      line-height: 60px;
+    }
+    #text {
+      font-size: 18px;
+      font-style: italic;
+      min-height: 40px;
+    }
+
+    button {
+      padding: 10px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:not(.active) {
+      display: none;
+    }
+    #start {
+      background-color: #27ae60; 
+      color: white;
+    }
+    #stop {
+      background-color: #e74c3c; 
+      color: white;
+    }
+
+    .prediction-good {
+      color: #27ae60; 
+    }
+    .prediction-bad {
+      color: #c0392b; 
+    }
+
+  </style>
+</head>
+<body>
+
+<div id="parent">
+  <div id="timer">?</div>
+  
+  <div id="text"></div>
+  
+  <button id="start" class="active">узнать свою судьбу</button>
+  <button id="stop">получить предсказание</button>
+</div>
+
+<script>
+const predictions = [
+  { text: "Сегодня вас ждёт удача в делах.", status: "good" },
+  { text: "Неожиданная встреча изменит ваши планы.", status: "good" },
+  { text: "Слушайте интуицию, она вас не подведёт.", status: "good" },
+  
+  { text: "Сегодня возможны мелкие неприятности.", status: "bad" },
+  { text: "Не принимайте важных решений в спешке.", status: "bad" },
+];
+
+const timerEl = document.getElementById('timer');
+const textEl = document.getElementById('text');
+const startBtn = document.getElementById('start');
+const stopBtn = document.getElementById('stop');
+
+let intervalId = null;
+let currentNumber = null;
+const MAX_NUMBER = predictions.length * 3; 
+
+function startTimer() {
+   startBtn.classList.remove('active');
+   stopBtn.classList.add('active');
+
+   intervalId = setInterval(() => {
+     currentNumber = Math.floor(Math.random() * MAX_NUMBER) + 1;
+     timerEl.textContent = currentNumber;
+   }, 100);
+}
+
+function stopTimer() {
+   clearInterval(intervalId);
+   
+   startBtn.style.display = 'none';
+   stopBtn.style.display = 'none';
+   
+   timerEl.textContent = "🔮";
+
+   const predictionIndex = (currentNumber - 1) % predictions.length;
+   const prediction = predictions[predictionIndex];
+
+   if (prediction.status === 'good') {
+     textEl.innerHTML = `<p class="prediction-good">${prediction.text}</p>`;
+   } else if (prediction.status === 'bad') {
+     textEl.innerHTML = `<p class="prediction-bad">${prediction.text}</p>`;
+   }
+}
+
+startBtn.addEventListener('click', startTimer);
+stopBtn.addEventListener('click', stopTimer);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Игра: Смена цветов</title>
+  <style>
+    .red   { background: red;   }
+    .green { background: green; }
+    .blue  { background: blue;  }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      padding: 20px;
+      background: #f4f6f8;
+      text-align: center;
+    }
+    h1 { margin-bottom: 5px; color: #222; }
+    
+
+    #moves-counter {
+      margin: 15px 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: #444;
+      background: #fff;
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    td {
+      width: 80px;
+      height: 80px;
+      border: 2px solid #fff;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+      user-select: none;
+    }
+    td:hover { transform: scale(0.95); opacity: 0.9; }
+    td:active { transform: scale(0.9); }
+    td.disabled { cursor: not-allowed; pointer-events: none; filter: grayscale(0.2); }
+    
+    #win-message {
+      display: none;
+      margin-top: 25px;
+      padding: 15px 30px;
+      background: #4CAF50;
+      color: white;
+      font-size: 20px;
+      border-radius: 8px;
+      animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes popIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+
+    button {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    button:hover { background: #555; }
+  </style>
+</head>
+<body>
+
+  <h1>Игра: Смена цветов</h1>
+  <p>Кликайте по ячейкам. Цель: сделать все ячейки одного цвета!</p>
+  
+  <div id="moves-counter">Ходов: 0</div>
+  
+  <div id="table-container"></div>
+  <div id="win-message">🎉 Победа! Все ячейки одного цвета!</div>
+  <button id="restart-btn">Начать заново</button>
+
+  <script>
+    const colors = ['red', 'green', 'blue'];
+    let isGameOver = false;
+    let clickCount = 0;
+    function getNextElement(arr, currentElement) {
+      const currentIndex = arr.indexOf(currentElement);
+      if (currentIndex === -1) return arr[0];
+      return arr[(currentIndex + 1) % arr.length];
+    }
+
+    function getRandomElement(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function checkWin(referenceCell) {
+      const targetColor = Array.from(referenceCell.classList).find(cls => colors.includes(cls));
+      if (!targetColor) return false;
+      const allCells = document.querySelectorAll('td');
+      return Array.from(allCells).every(cell => cell.classList.contains(targetColor));
+    }
+
+    function createTable(rows, cols) {
+      const container = document.getElementById('table-container');
+      container.innerHTML = '';
+      isGameOver = false;
+      clickCount = 0; 
+      document.getElementById('moves-counter').textContent = 'Ходов: 0';
+      document.getElementById('win-message').style.display = 'none';
+      document.getElementById('restart-btn').style.display = 'none';
+
+      const table = document.createElement('table');
+      for (let i = 0; i < rows; i++) {
+        const tr = document.createElement('tr');
+        for (let j = 0; j < cols; j++) {
+          const td = document.createElement('td');
+          const startColor = getRandomElement(colors);
+          td.classList.add(startColor);
+          td.textContent = startColor;
+
+          td.addEventListener('click', function() {
+            if (isGameOver) return;
+
+            const currentColor = Array.from(this.classList).find(cls => colors.includes(cls));
+            const nextColor = getNextElement(colors, currentColor);
+
+            this.classList.replace(currentColor, nextColor);
+            this.textContent = nextColor;
+
+  
+            clickCount++;
+            document.getElementById('moves-counter').textContent = `Ходов: ${clickCount}`;
+
+  
+            if (checkWin(this)) {
+              isGameOver = true;
+              document.getElementById('win-message').style.display = 'block';
+              document.getElementById('restart-btn').style.display = 'inline-block';
+              document.querySelectorAll('td').forEach(td => td.classList.add('disabled'));
+            }
+          });
+
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+      container.appendChild(table);
+    }
+
+    createTable(4, 5);
+    document.getElementById('restart-btn').addEventListener('click', () => createTable(4, 5));
+  </script>
+
+</body>
+</html>

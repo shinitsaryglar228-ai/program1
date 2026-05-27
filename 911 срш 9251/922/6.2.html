@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Линейный календарь</title>
+  <style>
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 5px;
+    }
+    li {
+      padding: 5px 8px;
+      background: #f0f0f0;
+      border-radius: 4px;
+    }
+    .today {
+      background: #4CAF50; 
+      color: white; 
+    }
+  </style>
+</head>
+<body>
+
+<ul id="calendar"></ul>
+
+<script>
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth();
+  const today = now.getDate(); 
+
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  const calendar = document.getElementById('calendar');
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const li = document.createElement('li');
+    li.textContent = day;
+
+    if (day === today) {
+      li.classList.add('today');
+    }
+
+    calendar.appendChild(li);
+  }
+</script>
+
+</body>
+</html>

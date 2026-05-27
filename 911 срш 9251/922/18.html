@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Чеклист</title>
+	<style>
+#list span {
+	margin-right: 5px;
+}
+#list .remove, #list .mark {
+	color: blue;
+	cursor: pointer;
+}
+#list .remove:hover, #list .mark:hover {
+	text-decoration: underline;
+}
+	</style>
+</head>
+<body>
+
+	<input id="input" placeholder="">
+	<ul id="list"></ul>
+
+	<script>
+let input = document.querySelector('#input');
+let list = document.querySelector('#list');
+
+input.addEventListener('keypress', function(event) {
+	if (event.key == 'Enter') {
+		let li = document.createElement('li');
+		
+		let task = document.createElement('span');
+		task.classList.add('task');
+		task.textContent = this.value;
+		li.appendChild(task);
+		
+		let remove = document.createElement('span');
+		remove.classList.add('remove');
+		remove.textContent = 'удалить';
+		li.appendChild(remove);
+		
+		let mark = document.createElement('span');
+		mark.classList.add('mark');
+		mark.textContent = 'сделано';
+		li.appendChild(mark);
+		
+		list.appendChild(li);
+		
+		this.value = '';
+	}
+});
+	</script>
+</body>
+</html>

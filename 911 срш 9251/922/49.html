@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.red   { background: red;   }
+    .green { background: green; }
+    .blue  { background: blue;  }
+  </style>
+</head>
+</style>
+</head>
+<body>
+<div id="test-output"></div>
+
+  <div id="table-container"></div>
+
+  <script>
+    const colors = ['red', 'green', 'blue'];
+
+    function getNextElement(arr, currentElement) {
+      const currentIndex = arr.indexOf(currentElement);
+  
+      if (currentIndex === -1) return arr[0];
+      
+
+      const nextIndex = (currentIndex + 1) % arr.length;
+      return arr[nextIndex];
+    }
+
+      console.log('=== Тест getNextElement ===');
+    const testCases = [
+      { curr: 'red',   expected: 'green' },
+      { curr: 'green', expected: 'blue'  },
+      { curr: 'blue',  expected: 'red'   }
+    ];
+     const testDiv = document.getElementById('test-output');
+    testCases.forEach(({ curr, expected }) => {
+      const result = getNextElement(colors, curr);
+
+      
+
+      const span = document.createElement('span');
+      span.className = `test-res ${result}`;
+      span.textContent = `${curr} → ${result}`;
+      testDiv.appendChild(span);
+    });
+
+
+    function getRandomElement(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    const rows = 5;
+    const cols = 6;
+    const table = document.createElement('table');
+
+    for (let i = 0; i < rows; i++) {
+      const tr = document.createElement('tr');
+      for (let j = 0; j < cols; j++) {
+        const td = document.createElement('td');
+
+        const startColor = getRandomElement(colors);
+        td.classList.add(startColor);
+        td.textContent = startColor; 
+
+        td.addEventListener('click', function() {
+
+          const currentColor = Array.from(this.classList).find(cls => colors.includes(cls));
+          if (!currentColor) return;
+
+          const nextColor = getNextElement(colors, currentColor);
+
+          this.classList.replace(currentColor, nextColor);
+          this.textContent = nextColor;
+        });
+
+        tr.appendChild(td);
+      }
+      table.appendChild(tr);
+    }
+
+    document.getElementById('table-container').appendChild(table);
+
+    </script>
+</body>
+</html>

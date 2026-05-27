@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>104</title>
+<script>
+        function findNOK() {
+            let a = +document.getElementById('n1').value;
+            let b = +document.getElementById('n2').value;
+            
+            let i = Math.max(a, b);
+
+            while (true) {
+                if (i % a === 0 && i % b === 0) {
+                    document.getElementById('res').innerText = "НОК: " + i;
+                    break; 
+                }
+                i++;
+            }
+        }
+</script>
+</head>
+<body>
+    <input type="number" id="n1">
+    <input type="number" id="n2">
+    <button onclick="findNOK()">Найти НОК</button>
+    <p id="res"></p>
+
+</body>
+</html>

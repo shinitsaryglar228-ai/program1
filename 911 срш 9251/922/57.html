@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание №1 - Разбиение на недели (chunk)</title>
+</head>
+<body>
+
+    <h1>Разбиение массива дней на недели</h1>
+    <p>Двумерный массив недель выведен в консоль</p>
+
+    <script>
+
+        function range(count) {
+            var res = [];
+            for (var i = 1; i <= count; i++) {
+                res.push(i);
+            }
+            return res;
+        }
+
+
+        function getLastDay(year, month) {
+            var date = new Date(year, month + 1, 0);
+            return date.getDate();
+        }
+
+        function getFirstWeekDay(year, month) {
+            var date = new Date(year, month, 1);
+            return date.getDay();
+        }
+
+        function getLastWeekDay(year, month) {
+            var date = new Date(year, month + 1, 0);
+            return date.getDay();
+        }
+
+
+        function normalize(arr, left, right) {
+            for (var i = 0; i < left; i++) {
+                arr.unshift('');
+            }
+            for (var j = 0; j < right; j++) {
+                arr.push('');
+            }
+            return arr;
+        }
+
+        function chunk(arr, n) {
+            var result = [];
+            
+
+            for (var i = 0; i < arr.length; i += n) {
+  
+                var subArr = arr.slice(i, i + n);
+                result.push(subArr);
+            }
+            
+            return result;
+        }
+
+
+        var year = 2026;
+        var month = 4; // Май
+
+
+        var arr = range(getLastDay(year, month));
+        var firstWeekDay = getFirstWeekDay(year, month);
+        var lastWeekDay  = getLastWeekDay(year, month);
+
+        let res = chunk(normalize(arr, firstWeekDay, 6 - lastWeekDay), 7);
+
+        console.log(res);
+    </script>
+
+</body>
+</html>

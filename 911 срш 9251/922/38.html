@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        #slider {
+            width: 200px;
+            height: 50px;
+            border: 1px solid black;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            margin: 0 10px;
+        }
+        a {
+            text-decoration: none;
+            font-size: 30px;
+            color: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="" id="left">←</a>
+    <div id="slider"></div>
+    <a href="" id="right">→</a>
+
+    <script>
+        let texts = ['текст 1', 'текст 2', 'текст 3'];
+        let i = 0;
+
+        let left = document.querySelector('#left');
+        let right = document.querySelector('#right');
+        let slider = document.querySelector('#slider');
+
+        slider.textContent = texts[i];
+
+        right.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            i++;
+            
+            if (i >= texts.length) {
+                i = 0; 
+            }
+            
+            slider.textContent = texts[i];
+        });
+
+        left.addEventListener('click', function(event) {
+            event.preventDefault();
+            i--;
+            
+            if (i < 0) {
+                i = texts.length - 1; 
+            }
+            
+            slider.textContent = texts[i];
+        });
+    </script>
+</body>
+</html>

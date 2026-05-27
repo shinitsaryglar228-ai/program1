@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Улучшенный календарь</title>
+    <style>
+        #parent {
+            text-align: center;
+        }
+        #calendar {
+            display: inline-block;
+            font-family: sans-serif;
+        }
+        #calendar td, #calendar th {
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+        }
+        #calendar .info {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="parent">
+	<div id="calendar">
+		<div class="info">Янв 2020</div>
+		<table>
+			<thead>
+				<tr>
+					<th>пн</th>
+					<th>вт</th>
+					<th>ср</th>
+					<th>чт</th>
+					<th>пт</th>
+					<th>сб</th>
+					<th>вс</th>
+				</tr>
+			</thead>
+			<tbody class="body"></tbody>
+		</table>
+	</div>
+</div>
+
+<script>
+    // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+    function range(count) {
+        var res = [];
+        for (var i = 1; i <= count; i++) { res.push(i); }
+        return res;
+    }
+
+    function getLastDay(year, month) {
+        return new Date(year, month + 1, 0).getDate();
+    }
+
+
+    function getFirstWeekDay(year, month) {
+        var date = new Date(year, month, 1);
+        var day = date.getDay();
+        if (day == 0) {
+            return 6; 
+        } else {
+            return day - 1; 
+        }
+    }
+
+    function getLastWeekDay(year, month) {
+        var date = new Date(year, month + 1, 0);
+        var day = date.getDay();
+        if (day == 0) {
+            return 6;
+        } else {
+            return day - 1;
+        }
+    }
+
+    function normalize(arr, left, right) {
+        for (var i = 0; i < left; i++) { arr.unshift(''); }
+        for (var j = 0; j < right; j++) { arr.push(''); }
+        return arr;
+    }
+
+    function chunk(arr, n) {
+        var result = [];
+        for (var i = 0; i < arr.length; i += n) { result.push(arr.slice(i, i + n)); }
+        return result;
+    }
+
+    function createTable(parent, arr) {
+        for (var i = 0; i < arr.length; i++) {
+            var tr = document.createElement('tr');
+            for (var j = 0; j < arr[i].length; j++) {
+                var td = document.createElement('td');
+                td.textContent = arr[i][j];
+                tr.appendChild(td);
+            }
+            parent.appendChild(tr);
+        }
+    }
+
+    function draw(body, year, month) {
+        var arr = range(getLastDay(year, month));
+        
+        var firstWeekDay = getFirstWeekDay(year, month);
+        var lastWeekDay  = getLastWeekDay(year, month);
+        
+        var nums = chunk(normalize(arr, firstWeekDay, 6 - lastWeekDay), 7);
+        createTable(body, nums);
+    }
+
+
+    var monthsNames = [
+        'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 
+        'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'
+    ];
+
+    var calendarBody = document.querySelector('#calendar .body');
+    var calendarInfo = document.querySelector('#calendar .info');
+
+
+    var date  = new Date();
+    var year  = date.getFullYear();
+    var month = date.getMonth();
+
+
+    calendarInfo.textContent = monthsNames[month] + ' ' + year;
+    draw(calendarBody, year, month);
+</script>
+
+</body>
+</html>

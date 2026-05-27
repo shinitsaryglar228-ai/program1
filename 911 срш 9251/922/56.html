@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание №1 - Дни недели</title>
+</head>
+<body>
+
+    <h1>Определение дней недели начала и конца месяца</h1>
+    <p>Результаты проверки функций выведены в консоль </p>
+
+    <script>
+        function getFirstWeekDay(year, month) {
+
+            var date = new Date(year, month, 1);
+
+            return date.getDay();
+        }
+
+        function getLastWeekDay(year, month) {
+  
+            var date = new Date(year, month + 1, 0);
+            return date.getDay();
+        }
+
+        var currentYear = 2026;
+        var currentMonth = 7;
+
+        var firstDayOfWeek = getFirstWeekDay(currentYear, currentMonth);
+        var lastDayOfWeek = getLastWeekDay(currentYear, currentMonth);
+
+
+        console.log('Номер дня недели для 1-го числа:', firstDayOfWeek); 
+        console.log('Номер дня недели для последнего числа:', lastDayOfWeek);
+
+    </script>
+
+</body>
+</html>

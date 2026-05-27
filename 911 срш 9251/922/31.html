@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <style>
+.right {
+	border: 2px solid green;
+	outline: none;
+}
+.wrong {
+	border: 2px solid red;
+	outline: none;
+}
+
+    </style>
+</head>
+<body>
+<div id="test">
+	<div>
+		<p>Вопрос 1: Сколько будет 5 * 5?</p>
+		<input>
+	</div>
+	<div>
+		<p>Вопрос 2: Сколько месяцев в году?</p>
+		<input>
+	</div>
+	<div>
+		<p>Вопрос 3: Сколько дней в году?</p>
+		<input>
+	</div>
+	
+	<button id="button">проверить ответы</button>
+</div>
+<script>
+let answers = [
+	'25',
+	'12',
+	'365',
+];
+
+let button = document.querySelector('#button');
+let inputs = document.querySelectorAll('#test input');
+
+button.addEventListener('click', function() {
+
+	for (let i = 0; i < inputs.length; i++) {
+		let input = inputs[i];
+		let userAnswer = input.value.trim();
+		let rightAnswer = answers[i]; 
+		
+		input.classList.remove('right', 'wrong');
+		
+		if (userAnswer === rightAnswer) {
+			input.classList.add('right');
+		} else {
+			input.classList.add('wrong');
+		}
+	}
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+#slider img {
+	display: none; 
+    width: 600px;
+    height: 400px;
+}
+
+#slider img.active {
+	display: block; 
+}
+
+    </style>
+</head>
+<body>
+<div id="slider">
+	<img src="2023-01-20_08-42-15.png" class="active">
+	<img src="2023-01-20_08-45-33.png">
+	<img src="3.png">
+</div>
+    <script>
+let slider = document.querySelector('#slider');
+let imgs = slider.querySelectorAll('img');
+let i = 0; 
+
+imgs[i].classList.add('active');
+
+setInterval(function() {
+	imgs[i].classList.remove('active');
+	
+	i++; 
+	
+	if (i >= imgs.length) {
+		i = 0;
+	}
+	
+	imgs[i].classList.add('active');
+}, 1000);
+
+    </script>
+</body>
+</html>

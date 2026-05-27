@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой Чеклист</title>
+    <style>
+        body { text-align: center; font-family: sans-serif; padding-top: 20px; }
+        #input { padding: 5px; width: 250px; }
+        #list { padding: 0; list-style-type: none; }
+        #list li { margin-top: 10px; font-size: 18px; }
+        
+        .remove, .mark {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-left: 10px;
+            font-size: 16px;
+        }
+
+        .done {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .task { cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <input id="input" placeholder="">
+    <ul id="list"></ul>
+
+    <script>
+        let input = document.querySelector('#input');
+        let list = document.querySelector('#list');
+
+        input.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter' && this.value.trim() !== '') {
+                let li = document.createElement('li');
+
+                let task = document.createElement('span');
+                task.classList.add('task');
+                task.textContent = this.value;
+
+                task.addEventListener('dblclick', function() {
+                    let text = this.textContent;
+                    this.textContent = ''; 
+                    
+                    let editInput = document.createElement('input');
+                    editInput.value = text;
+                    this.appendChild(editInput);
+                    editInput.focus();
+
+                    editInput.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            task.textContent = this.value;
+                        }
+                    });
+
+                    editInput.addEventListener('blur', function() {
+                        task.textContent = this.value;
+                    });
+                });
+
+                li.appendChild(task);
+
+                let remove = document.createElement('span');
+                remove.classList.add('remove');
+                remove.textContent = 'удалить';
+                remove.addEventListener('click', function() {
+                    li.remove();
+                });
+                li.appendChild(remove);
+
+                let mark = document.createElement('span');
+                mark.classList.add('mark');
+                mark.textContent = 'сделано';
+                mark.addEventListener('click', function() {
+                    task.classList.toggle('done');
+                });
+                li.appendChild(mark);
+
+                list.appendChild(li);
+                this.value = ''; 
+            }
+        });
+    </script>
+</body>
+</html>

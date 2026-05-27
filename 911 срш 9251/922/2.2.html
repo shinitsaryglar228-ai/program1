@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>104</title>
+<script>
+function check() {
+            let n = [
+                +document.getElementById('i1').value,
+                +document.getElementById('i2').value,
+                +document.getElementById('i3').value
+            ].sort((a, b) => a - b);
+
+            if (n[2] * n[2] === n[0] * n[0] + n[1] * n[1]) {
+                document.getElementById('res').innerText = "Да, это тройка Пифагора";
+            } else {
+                document.getElementById('res').innerText = "Нет, это не тройка";
+            }
+        }
+</script>
+</head>
+<body>
+  <input type="number" id="i1">
+    <input type="number" id="i2">
+    <input type="number" id="i3">
+    <button onclick="check()">Проверить</button>
+    <p id="res"></p>
+</body>
+</html>

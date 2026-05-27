@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <style>
+.right {
+	border: 2px solid green;
+	outline: none;
+}
+.wrong {
+	border: 2px solid red;
+	outline: none;
+}
+
+    </style>
+</head>
+<body>
+<div id="test">
+	<div>
+		<p>Вопрос 1: Как называется столица России?</p>
+		<input data-right="Москва">
+	</div>
+	<div>
+		<p>Вопрос 2: Сколько будет 2 + 2?</p>
+		<input data-right="4">
+	</div>
+	<div>
+		<p>Вопрос 3: Какого цвета небо в ясный день?</p>
+		<input data-right="синий">
+	</div>
+</div>
+
+<script>
+let inputs = document.querySelectorAll('#test input');
+
+for (let input of inputs) {
+	input.addEventListener('keydown', function(event) {
+
+		if (event.key === 'Enter') {
+			let userAnswer = this.value.trim();      
+			let rightAnswer = this.dataset.right;     
+			
+			this.classList.remove('right', 'wrong');
+			
+			if (userAnswer === rightAnswer) {
+				this.classList.add('right');
+			} else {
+				this.classList.add('wrong');
+			}
+		}
+	});
+}
+</script>
+</body>
+</html>

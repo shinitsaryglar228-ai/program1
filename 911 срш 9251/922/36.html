@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <style>
+.right { color: green; font-weight: bold; }
+.wrong { color: red; }
+#test div { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+label { display: block; margin: 3px 0; }
+
+    </style>
+</head>
+<body>
+<div id="test"></div>
+<button id="button">Проверить ответы</button>
+
+<script>
+let questions = [
+	{
+		text: 'Как называется столица Японии?',
+		right: 0,
+		variants: ['Токио', 'Киото', 'Осака']
+	},
+	{
+		text: 'Какая страна самая большая?',
+		right: 1,
+		variants: ['Япония', 'Россия', 'США']
+	},
+	{
+		text: 'Сколько будет 5 * 5?',
+		right: 2,
+		variants: ['4', '5', '25']
+	},
+];
+
+let testContainer = document.querySelector('#test');
+let button = document.querySelector('#button');
+
+questions.forEach((item, qIndex) => {
+	let div = document.createElement('div');
+	
+	let p = document.createElement('p');
+	p.textContent = item.text;
+	div.appendChild(p);
+	
+	item.variants.forEach((variant, vIndex) => {
+		let label = document.createElement('label');
+		
+		let input = document.createElement('input');
+		input.type = 'radio';
+		input.name = 'question' + qIndex;
+		
+		label.appendChild(input);
+		label.append(' ' + variant);
+		div.appendChild(label);
+	});
+	
+	testContainer.appendChild(div);
+});
+
+button.addEventListener('click', function() {
+	let divs = testContainer.querySelectorAll('div');
+	
+	divs.forEach((div, qIndex) => {
+		let variants = div.querySelectorAll('input[type="radio"]');
+		let labels = div.querySelectorAll('label');
+		
+		labels.forEach(label => label.classList.remove('right', 'wrong'));
+		
+		variants.forEach((input, vIndex) => {
+			if (input.checked) {
+				if (vIndex === questions[qIndex].right) {
+					input.parentElement.classList.add('right');
+				} else {
+					input.parentElement.classList.add('wrong');
+				}
+			}
+		});
+	});
+});
+
+</script>
+</body>
+</html>

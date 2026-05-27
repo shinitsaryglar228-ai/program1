@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>104</title>
+</head>
+
+<body>
+    <h1>Экранная клавиатура</h1>
+
+    <input id="input" placeholder="Введите текст">
+    <div id="keyboard"></div>
+
+    <script>
+        let input = document.getElementById("input");
+        let keyboard = document.getElementById("keyboard");
+
+             const keys = [
+            '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+            'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
+            'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
+            'z', 'x', 'c', 'v', 'b', 'n', 'm', 
+            'Space', 'Backspace'
+        ];
+        let caps = false;
+
+        let capsBtn = document.createElement("button");
+        capsBtn.innerHTML = "Caps";
+        capsBtn.onclick = function () {
+            caps = !caps;
+        };
+        keyboard.appendChild(capsBtn);
+
+        for (let char of keys) {
+            let btn = document.createElement("button");
+            btn.innerHTML = char;
+
+            btn.onclick = function () {
+                if (caps) {
+                    input.value += char.toUpperCase();
+                } else {
+                    input.value += char;
+                }
+            };
+
+            keyboard.appendChild(btn);
+        }
+    </script>
+</body>
+
+</html>

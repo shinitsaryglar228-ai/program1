@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Линейный календарь</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    li {
+      padding: 6px 12px;
+      background: #e0e0e0;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .today {
+      background: #4CAF50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<h2 id="month-year"></h2>
+
+<ul id="calendar"></ul>
+
+<script>
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth(); 
+  const today = now.getDate();
+
+  const monthNames = [
+    'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+    'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+  ];
+
+  document.getElementById('month-year').textContent = `${monthNames[month]} ${year}`;
+
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const calendar = document.getElementById('calendar');
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const li = document.createElement('li');
+    li.textContent = day;
+
+    if (day === today) {
+      li.classList.add('today');
+    }
+
+    calendar.appendChild(li);
+  }
+</script>
+
+</body>
+</html>

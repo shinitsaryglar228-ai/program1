@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Автодополнение</title>
+  <style>
+    #parent {
+      position: relative;
+      width: 300px; 
+      margin: 50px auto;
+    }
+    #elem {
+      padding: 5px;
+      font-size: 18px;
+      width: 100%;
+      box-sizing: border-box;  
+    }
+
+    #parent ul {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      background-color: white;
+      width: 100%; 
+      border: 1px solid #ccc; 
+      z-index: 10;
+    }
+    #parent li {
+      border-bottom: 1px solid #eee;
+      font-size: 18px;
+      padding: 5px;
+    }
+    #parent li:last-child {
+      border-bottom: none; 
+    }
+    #parent li:hover {
+      border: 1px solid black;
+      cursor: pointer;
+      background-color: #f0f0f0; 
+    }
+
+    .bg-text {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      color: #999;
+    }
+
+  </style>
+</head>
+<body>
+<div id="parent">
+  <input id="elem" placeholder="Введите страну...">
+  <ul id="list"></ul>
+</div>
+<div class="bg-text">text text text text text</div>
+
+<script>
+const countries = ['Russia', 'Germania', 'Bulgaria'];
+
+const input = document.getElementById('elem');
+const list = document.getElementById('list');
+input.addEventListener('input', function() {
+  const inputValue = input.value.toLowerCase();
+  list.innerHTML = '';
+  if (!inputValue) {
+    return;
+  }
+  const filteredCountries = countries.filter(country =>
+    country.toLowerCase().startsWith(inputValue)
+  );
+
+  if (filteredCountries.length === 0) {
+    return;
+  }
+  filteredCountries.forEach(country => {
+    const li = document.createElement('li');
+    li.textContent = country;
+
+    li.addEventListener('click', function() {
+      input.value = country;
+      list.innerHTML = '';
+    });
+
+    list.appendChild(li);
+  });
+});
+</script>
+
+</body>
+</html>

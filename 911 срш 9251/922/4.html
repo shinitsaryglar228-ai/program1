@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        td {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #000000;
+            cursor: pointer;
+            text-align: center;
+        }
+        .hit { background-color: rgb(56, 240, 0); }
+        .miss { background-color: #ff0000; }
+    </style>
+</head>
+<body>
+
+    <h2>Найди 10 ячеек!</h2>
+    <p>Осталось найти: <span id="count">10</span></p>
+    <table id="gameTable"></table>
+
+    <script>
+        let table = document.getElementById('gameTable');
+        let countDisplay = document.getElementById('count');
+        let secrets = [];
+        let found = 0;
+
+        while (secrets.length < 10) {
+            let num = Math.floor(Math.random() * 100) + 1;
+            if (!secrets.includes(num)) {
+                secrets.push(num);
+            }
+        }
+        let k = 1;
+        for (let i = 0; i < 10; i++) {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < 10; j++) {
+                let td = document.createElement('td');
+                let cellNum = k++;
+
+                td.addEventListener('click', function handler() {
+                    if (secrets.includes(cellNum)) {
+                        this.classList.add('hit'); 
+                        found++;
+                        countDisplay.innerText = 10 - found;
+                        this.removeEventListener('click', handler);
+                    } else {
+                        this.classList.add('miss'); 
+                    }
+
+                    if (found === 10) {
+                        alert('Поздравляю! Вы нашли все ячейки!');
+                    }
+                });
+
+                 tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+    </script>
+
+</body>
+</html>

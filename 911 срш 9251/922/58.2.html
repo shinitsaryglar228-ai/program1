@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание №2</title>
+    <style>
+        table { border-collapse: collapse; font-family: sans-serif; }
+        td, th { border: 1px solid #ccc; width: 40px; height: 40px; text-align: center; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+    <h2>Задание №2: Календарь за текущий месяц</h2>
+    
+    <table>
+        <thead>
+            <tr><th>Вс</th><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th></tr>
+        </thead>
+
+        </tbody>
+    </table>
+
+    <script>
+        // Копируем все функции вместе
+        function range(count) {
+            var res = [];
+            for (var i = 1; i <= count; i++) { res.push(i); }
+            return res;
+        }
+        function getLastDay(year, month) {
+            return new Date(year, month + 1, 0).getDate();
+        }
+        function getFirstWeekDay(year, month) {
+            return new Date(year, month, 1).getDay();
+        }
+        function getLastWeekDay(year, month) {
+            return new Date(year, month + 1, 0).getDay();
+        }
+        function normalize(arr, left, right) {
+            for (var i = 0; i < left; i++) { arr.unshift(''); }
+            for (var j = 0; j < right; j++) { arr.push(''); }
+            return arr;
+        }
+        function chunk(arr, n) {
+            var result = [];
+            for (var i = 0; i < arr.length; i += n) { result.push(arr.slice(i, i + n)); }
+            return result;
+        }
+        function createTable(parent, arr) {
+            for (var i = 0; i < arr.length; i++) {
+                var tr = document.createElement('tr');
+                for (var j = 0; j < arr[i].length; j++) {
+                    var td = document.createElement('td');
+                    td.textContent = arr[i][j];
+                    tr.appendChild(td);
+                }
+                parent.appendChild(tr);
+            }
+        }
+
+        var body2 = document.getElementById('current-calendar-body');
+
+
+        var today = new Date();
+        var currentYear = today.getFullYear(); 
+        var currentMonth = today.getMonth();   
+
+        var daysArr = range(getLastDay(currentYear, currentMonth));
+        var firstDay = getFirstWeekDay(currentYear, currentMonth);
+        var lastDay  = getLastWeekDay(currentYear, currentMonth);
+
+
+        var finalNums = chunk(normalize(daysArr, firstDay, 6 - lastDay), 7);
+
+        createTable(body2, finalNums);
+    </script>
+
+</body>
+</html>

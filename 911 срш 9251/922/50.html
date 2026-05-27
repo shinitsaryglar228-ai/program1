@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+ /* Классы цветов из условия */
+    .red   { background: red;   }
+    .green { background: green; }
+    .blue  { background: blue;  }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+      text-align: center;
+    }
+    h1 { margin-bottom: 5px; }
+    p { color: #555; margin-bottom: 20px; }
+    
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      display: inline-block;
+    }
+    td {
+      width: 80px;
+      height: 80px;
+      border: 2px solid #333;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+      user-select: none;
+    }
+     td:hover { transform: scale(0.95); opacity: 0.9; }
+    td:active { transform: scale(0.9); }
+    
+    /* Класс для блокировки ячеек после победы */
+    td.disabled { cursor: not-allowed; pointer-events: none; }
+
+    #win-message {
+      display: none;
+      margin-top: 25px;
+      padding: 15px 30px;
+      background: #4CAF50;
+      color: white;
+      font-size: 22px;
+      border-radius: 8px;
+      animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+    button {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+    }
+    button:hover { background: #555; }
+
+  </style>
+</head>
+</style>
+</head>
+<body>
+<p>Кликайте по ячейкам. Цель: сделать все ячейки одного цвета!</p>
+  
+  <div id="table-container"></div>
+  <div id="win-message">🎉 Победа! Все ячейки одного цвета!</div>
+  <button id="restart-btn">Начать заново</button>
+
+  <script>
+    const colors = ['red', 'green', 'blue'];
+    let isGameOver = false; 
+
+    function getNextElement(arr, currentElement) {
+      const currentIndex = arr.indexOf(currentElement);
+      if (currentIndex === -1) return arr[0];
+      return arr[(currentIndex + 1) % arr.length];
+    }
+
+    function getRandomElement(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+
+    function checkWin(referenceCell) {
+
+      const targetColor = Array.from(referenceCell.classList).find(cls => colors.includes(cls));
+      if (!targetColor) return false;
+
+
+      const allCells = document.querySelectorAll('td');
+
+      return Array.from(allCells).every(cell => cell.classList.contains(targetColor));
+    }
+
+
+    function createTable(rows, cols) {
+      const container = document.getElementById('table-container');
+      container.innerHTML = '';
+      isGameOver = false;
+      document.getElementById('win-message').style.display = 'none';
+      document.getElementById('restart-btn').style.display = 'none';
+
+      const table = document.createElement('table');
+      for (let i = 0; i < rows; i++) {
+        const tr = document.createElement('tr');
+        for (let j = 0; j < cols; j++) {
+          const td = document.createElement('td');
+          const startColor = getRandomElement(colors);
+          td.classList.add(startColor);
+          td.textContent = startColor;
+           td.addEventListener('click', function() {
+            if (isGameOver) return; 
+
+            const currentColor = Array.from(this.classList).find(cls => colors.includes(cls));
+        
+            const nextColor = getNextElement(colors, currentColor);
+
+            this.classList.replace(currentColor, nextColor);
+            this.textContent = nextColor;
+
+            if (checkWin(this)) {
+              isGameOver = true;
+              document.getElementById('win-message').style.display = 'block';
+              document.getElementById('restart-btn').style.display = 'inline-block';
+              
+    
+            }
+          });
+
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+      container.appendChild(table);
+    }
+    createTable(4, 5);
+
+    document.getElementById('restart-btn').addEventListener('click', () => createTable(4, 5));
+    </script>
+</body>
+</html>

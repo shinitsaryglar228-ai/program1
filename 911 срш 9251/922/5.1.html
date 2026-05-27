@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>104</title>
+</head>
+
+<body>
+    <h1>Экранная клавиатура</h1>
+
+    <input id="input" placeholder="Введите текст">
+    <div id="keyboard"></div>
+
+    <script>
+        let input = document.getElementById("input");
+        let keyboard = document.getElementById("keyboard");
+
+        let keys = "1234567890qwertyuiopasdfghjklzxcvbnm";
+
+        for (let char of keys) {
+            let btn = document.createElement("button");
+            btn.innerHTML = char;
+
+            btn.onclick = function () {
+                input.value += this.innerHTML;
+            };
+
+            keyboard.appendChild(btn);
+        }
+    </script>
+</body>
+
+</html>
