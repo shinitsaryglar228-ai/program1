@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARSHIM SHOP - Маркетплейс компьютерных игр</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">
+                <img src="лого саршсим.png" alt="SARSHIM SHOP" class="header__logo-img">
+            </a>
+            
+            <nav class="header__nav nav" id="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#search" class="nav__link">Поиск</a></li>
+                    <li class="nav__item"><a href="login.html" class="nav__link">Войти</a></li>
+                    <li class="nav__item"><a href="profile.html" class="nav__link">Личный кабинет</a></li>
+                    <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог игр</a></li>
+                </ul>
+            </nav>
+            
+            <button class="header__burger burger" id="burger">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- ===== СЛАЙДЕР НА ЧИСТОМ CSS (без JS) ===== -->
+        <section class="hero-slider slider">
+            <div class="container">
+                <!-- Скрытые radio-переключатели -->
+                <input type="radio" name="slide" id="slide-1" class="slider__radio" checked>
+                <input type="radio" name="slide" id="slide-2" class="slider__radio">
+                <input type="radio" name="slide" id="slide-3" class="slider__radio">
+                
+                <div class="slider__wrapper">
+                    <div class="slider__track">
+                        
+                        <!-- Слайд 1 -->
+                        <div class="slider__slide">
+                            <img src="кибер панк.jpg" alt="Cyberpunk 2077" class="slide__image">
+                            <div class="slide__content">
+                                <h2 class="slide__title">Cyberpunk 2077</h2>
+                                <p class="slide__price">2 499 ₽</p>
+                                <a href="catalog.html" class="slide__btn btn">Подробнее</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 2 -->
+                        <div class="slider__slide">
+                            <img src="the witcher 3.webp" alt="The Witcher 3" class="slide__image">
+                            <div class="slide__content">
+                                <h2 class="slide__title">The Witcher 3: Wild Hunt</h2>
+                                <p class="slide__price">1 999 ₽</p>
+                                <a href="catalog.html" class="slide__btn btn">Подробнее</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Слайд 3 -->
+                        <div class="slider__slide">
+                            <img src="dark soul 3.webp" alt="Dark Souls III" class="slide__image">
+                            <div class="slide__content">
+                                <h2 class="slide__title">Dark Souls III</h2>
+                                <p class="slide__price">1 799 ₽</p>
+                                <a href="catalog.html" class="slide__btn btn">Подробнее</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Стрелки -->
+                    <label for="slide-3" class="slider__arrow slider__arrow--prev">‹</label>
+                    <label for="slide-2" class="slider__arrow slider__arrow--next">›</label>
+                    
+                    <!-- Точки-индикаторы -->
+                    <div class="slider__dots">
+                        <label for="slide-1" class="slider__dot"></label>
+                        <label for="slide-2" class="slider__dot"></label>
+                        <label for="slide-3" class="slider__dot"></label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Быстрый поиск -->
+        <section class="quick-search search" id="search">
+            <div class="container">
+                <h2 class="section-title">Быстрый поиск</h2>
+                <form class="search__form" action="catalog.html" method="get">
+                    <input type="text" class="search__input" placeholder="Введите название игры или жанр..." name="query">
+                    <button type="submit" class="search__btn btn">Найти</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Преимущества -->
+        <section class="advantages">
+            <div class="container">
+                <h2 class="section-title">Почему выбирают нас</h2>
+                <div class="advantages__grid">
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">💰</div>
+                        <h3 class="advantage-card__title">Привлекательные цены</h3>
+                        <p class="advantage-card__text">Экономьте на каждом заказе. Мы предлагаем выгодные условия и низкие цены на каждую покупку!»</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">🎁</div>
+                        <h3 class="advantage-card__title">Ежемесячные акции</h3>
+                        <p class="advantage-card__text">Специальные предложения каждый месяц! Получайте бонусы и участвуйте в розыгрышах призов!</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">🎧</div>
+                        <h3 class="advantage-card__title">Круглосуточная поддержка</h3>
+                        <p class="advantage-card__text">Поддерживаем вас круглосуточно! Любые вопросы решаются быстро и эффективно!»</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">⚡</div>
+                        <h3 class="advantage-card__title">Быстрая покупка</h3>
+                        <p class="advantage-card__text">Покупайте мгновенно! Просто выберите товар и нажмите "Купить"!»</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Популярные игры -->
+        <section class="popular-games games">
+            <div class="container">
+                <h2 class="section-title">Популярные игры</h2>
+                <div class="games__grid">
+                    
+                    <article class="game-card">
+                        <img src="кибер панк.jpg" alt="Cyberpunk 2077" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Cyberpunk 2077</h3>
+                            <p class="game-card__genre">RPG</p>
+                            <p class="game-card__developer">CD Projekt Red</p>
+                            <div class="game-card__rating">★★★★★</div>
+                            <p class="game-card__price">2 499 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+                    
+                    <article class="game-card">
+                        <img src="the witcher 3.webp" alt="The Witcher 3" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">The Witcher 3</h3>
+                            <p class="game-card__genre">RPG</p>
+                            <p class="game-card__developer">CD Projekt Red</p>
+                            <div class="game-card__rating">★★★★★</div>
+                            <p class="game-card__price">1 999 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+                    
+                    <article class="game-card">
+                        <img src="rustjpg.jpg" alt="Rust" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Rust</h3>
+                            <p class="game-card__genre">Survival</p>
+                            <p class="game-card__developer">Facepunch Studios</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">1 099 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+                    
+                    <article class="game-card">
+                        <img src="dark soul 3.webp" alt="Dark Souls III" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Dark Souls III</h3>
+                            <p class="game-card__genre">Action RPG</p>
+                            <p class="game-card__developer">FromSoftware</p>
+                            <div class="game-card__rating">★★★★★</div>
+                            <p class="game-card__price">1 799 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+                    
+                    <article class="game-card">
+                        <img src="bodycam.webp" alt="Bodycam" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Bodycam</h3>
+                            <p class="game-card__genre">Шутер</p>
+                            <p class="game-card__developer">Rivet Games</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">1 299 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="image.png" alt="Assassin's Creed" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Assassin's Creed Valhalla</h3>
+                            <p class="game-card__genre">Action RPG</p>
+                            <p class="game-card__developer">Ubisoft</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">2 199 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="arc raiders.webp" alt="ARC Raiders" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">ARC Raiders</h3>
+                            <p class="game-card__genre">Шутер</p>
+                            <p class="game-card__developer">Embark Studios</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">1 999 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="Alchemy Factory.webp" alt="Alchemy Factory" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Alchemy Factory</h3>
+                            <p class="game-card__genre">Крафт / Симулятор</p>
+                            <p class="game-card__developer">Indie Studio</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">899 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        !-парнтеры
+        </section>
+        <section class="partners">
+    <div class="container">
+        <h2 class="section-title">Наши партнеры</h2>  <!-- ЭТОТ ЗАГОЛОВОК ЕСТЬ? -->
+        <div class="partners__grid">
+        <img src="games.jpg" alt="Avalon Comics & Games" class="partners__logo">
+    <img src="plairix.jpg" alt="PlayRix Entertainment" class="partners__logo">
+    <img src="ea spoer.webp" alt="EA Sports" class="partners__logo">
+        </div>
+    </div>
+</section>
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__contacts">
+                    <p class="footer__phone">+7 (999) 999-99-99</p>
+                    <p class="footer__email">sarshim@shop.ru</p>
+                    <nav class="footer__nav">
+                        <a href="#" class="footer__link">Клиентам</a>
+                        <a href="#" class="footer__link">Партнерам</a>
+                        <a href="#" class="footer__link">О нас</a>
+                        <a href="#" class="footer__link">Контакты</a>
+                    </nav>
+                </div>
+                <div class="footer__nav-main">
+                    <h3 class="footer__title">Навигация</h3>
+                    <a href="index.html" class="footer__link">Главная</a>
+                    <a href="register.html" class="footer__link">Регистрация</a>
+                    <a href="login.html" class="footer__link">Авторизация</a>
+                    <a href="profile.html" class="footer__link">Личный кабинет</a>
+                    <a href="#search" class="footer__link">Поиск</a>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <p>&copy; 2024 SARSHIM SHOP. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

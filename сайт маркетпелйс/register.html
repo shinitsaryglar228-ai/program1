@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - SARSHIM SHOP</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="dark-theme">
+    <header class="header">
+        <div class="header__container container">
+            <a href="index.html" class="header__logo">
+                <img src="лого саршсим.png" alt="SARSHIM SHOP" class="header__logo-img">
+            </a>
+            <button class="burger" id="burger">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+            <nav class="nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html#search" class="nav__link">Поиск</a></li>
+                    <li><a href="login.html" class="nav__link">Войти</a></li>
+                    <li><a href="catalog.html" class="nav__link">Каталог</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="auth">
+        <div class="auth__card">
+            <h1 class="auth__title">Регистрация</h1>
+            <form class="form" action="login.html">
+                <div class="form__group">
+                    <label class="form__label">E-mail *</label>
+                    <input type="email" class="form__input" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Фамилия *</label>
+                    <input type="text" class="form__input" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Имя *</label>
+                    <input type="text" class="form__input" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Дата рождения *</label>
+                    <input type="date" class="form__input" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Номер телефона *</label>
+                    <input type="tel" class="form__input" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Пароль *</label>
+                    <input type="password" class="form__input" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label">Повтор пароля *</label>
+                    <input type="password" class="form__input" required>
+                </div>
+                <label class="form__checkbox">
+                    <input type="checkbox" required>
+                    <span>Согласие на обработку персональных данных</span>
+                </label>
+                <button type="submit" class="btn">Зарегистрироваться</button>
+                <p style="text-align:center;color:var(--text-muted);font-size:14px;">
+                    Уже есть аккаунт? <a href="login.html" style="color:var(--accent);">Войти</a>
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>
