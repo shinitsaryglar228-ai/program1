@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARSHIM GAME - Киберспортивный клуб</title>
+    
+    <!-- ИКОНКА -->
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="shortcut icon" href="logo.png" type="image/png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
+    
+    <!-- ЯНДЕКС КАРТА API -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=f346aca0-f73a-472e-899b-74e487778eff&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="1780540148.png" alt="SARSHIM GAME" class="logo-img">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#clubs">Наши клубы</a></li>
+            <li><a href="#news">Новости</a></li>
+            <li><a href="#tournaments">Турниры</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+            <li><a href="#shop">Магазин</a></li>
+            <li><a href="#merch">Мерч</a></li>
+            <li><a href="#career">Карьера</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <a href="#franchise" class="btn btn-franchise">Франшиза</a>
+            <a href="#book" class="btn btn-book">Забронировать</a>
+        </div>
+    </nav>
+
+    <!-- Hero секция -->
+    <section class="hero">
+        <div class="background-text">SARSHIM GAME</div>
+        <div class="hero-content">
+            <h1>Твоя игра начинается здесь</h1>
+            <p>Сеть топовых киберспортивных клубов<br>и арен по всему миру</p>
+            <div class="hero-buttons">
+                <a href="#book" class="btn btn-book">Забронировать онлайн</a>
+                <a href="#franchise" class="btn btn-franchise">Франшиза</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ГЕОГРАФИЯ -->
+    <section class="geography-section" id="clubs">
+        <h2 class="geo-title">ГЕОГРАФИЯ КЛУБОВ SARSHIM GAME</h2>
+        
+        <div class="geo-layout">
+            <!-- Страны слева -->
+            <div class="countries-sidebar">
+                <div class="country-item"><span class="country-dot">●</span> Россия</div>
+                <div class="country-item"><span class="country-dot">●</span> Беларусь</div>
+                <div class="country-item"><span class="country-dot">●</span> Казахстан</div>
+                <div class="country-item"><span class="country-dot">●</span> Литва</div>
+                <div class="country-item"><span class="country-dot">●</span> Грузия</div>
+                <div class="country-item"><span class="country-dot">●</span> Кыргызстан</div>
+                <div class="country-item"><span class="country-dot">●</span> Испания</div>
+                <div class="country-item"><span class="country-dot">●</span> Армения</div>
+                <div class="country-item"><span class="country-dot">●</span> США</div>
+                <div class="country-item"><span class="country-dot">●</span> Северный Кипр</div>
+                <div class="country-item"><span class="country-dot">●</span> Таиланд</div>
+                <div class="country-item"><span class="country-dot">●</span> Азербайджан</div>
+                <div class="country-item"><span class="country-dot">●</span> Узбекистан</div>
+            </div>
+            
+            <!-- КАРТА ЯНДЕКС -->
+            <div class="map-area">
+                <div id="yandex-map"></div>
+            </div>
+        </div>
+        
+        <!-- Статистика -->
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">13</div>
+                <div class="stat-label">стран</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">300+</div>
+                <div class="stat-label">клубов Sarshim</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">7500+</div>
+                <div class="stat-label">персональных компьютеров</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">900 000+</div>
+                <div class="stat-label">посетителей ежемесячно</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Новости -->
+    <section class="news" id="news">
+        <h2 class="section-title">Новости</h2>
+        <div class="news-slider">
+            <div class="news-card">
+                <div class="news-image">
+                    <div class="news-date">28<br>мая</div>
+                    <img src="фотки новосей/для сайта 3.png" alt="" class="news-img">
+                </div>
+                <div class="news-content">
+                    <h3>SARSHIM — ТОП-1</h3>
+                    <p>Мы вошли в топ лучших клубов года</p>
+                    <a href="#" class="read-more">Читать далее →</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">
+                    <div class="news-date">18<br>мая</div>
+                    <img src="фотки новосей/для новостей2.png" alt="" class="news-img">
+                </div>
+                <div class="news-content">
+                    <h3>НОВЫЙ КЛУБ</h3>
+                    <p>Открыта новая точка для игроков</p>
+                    <a href="#" class="read-more">Читать далее →</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">
+                    <div class="news-date">06<br>мая</div>
+                    <img src="фотки новосей/для новостей.png" alt="" class="news-img">
+                </div>
+                <div class="news-content">
+                    <h3>ТУРНИРЫ МАЯ</h3>
+                    <p>Призовой фонд более 500 000 ₽</p>
+                    <a href="#" class="read-more">Читать далее →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Турниры -->
+    <section class="tournaments" id="tournaments">
+        <h2 class="section-title">Турниры</h2>
+        <div class="tournaments-grid">
+            <div class="tournament-card">
+                <div class="game-name">CS 2 1x1 Online</div>
+                <div class="tournament-date">16 мая</div>
+                <div class="prize-pool">15 000 ₽</div>
+            </div>
+            <div class="tournament-card">
+                <div class="game-name">Fortnite DUO</div>
+                <div class="tournament-date">17 мая</div>
+                <div class="prize-pool">50 000 ₽</div>
+            </div>
+            <div class="tournament-card featured">
+                <div class="game-name">CS 2 5x5 Сибирь и Дальний Восток</div>
+                <div class="tournament-date">24 мая</div>
+                <div class="prize-pool">50 000 ₽</div>
+            </div>
+            <div class="tournament-card">
+                <div class="game-name">CS 2 5x5</div>
+                <div class="tournament-date">24 мая</div>
+                <div class="prize-pool">100 000 ₽</div>
+            </div>
+            <div class="tournament-card">
+                <div class="game-name">Dota 2 5x5</div>
+                <div class="tournament-date">17 мая</div>
+                <div class="prize-pool">100 000 ₽</div>
+            </div>
+            <div class="tournament-card">
+                <div class="game-name">PUBG Solo</div>
+                <div class="tournament-date">17 мая</div>
+                <div class="prize-pool">30 000 ₽</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="1780540148.png" alt="SARSHIM GAME" class="footer-logo-img">
+                    <p class="footer-copy">© 2026 SARSHIM GAME</p>
+                </div>
+                <div class="footer-contacts">
+                    <p class="footer-phone">8 (800) 444-13-02</p>
+                    <p class="footer-email">info@sarshim-game.ru</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">📱</a>
+                        <a href="#" class="social-icon">▶️</a>
+                        <a href="#" class="social-icon">VK</a>
+                        <a href="#" class="social-icon">🎮</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <a href="#clubs">Наши клубы</a>
+                <a href="#news">Новости</a>
+                <a href="#contacts">Контакты</a>
+                <a href="#shop">Витрина</a>
+                <a href="#merch">Мерч</a>
+                <a href="#career">Карьера</a>
+                <a href="#franchise">Франшиза</a>
+            </div>
+            <div class="app-buttons">
+                <a href="#" class="app-btn">▶ Google Play</a>
+                <a href="#" class="app-btn">🍎 App Store</a>
+                <a href="#" class="app-btn">📱 AppGallery</a>
+                <a href="#" class="app-btn">📦 RuStore</a>
+            </div>
+            <div class="footer-legal">
+                <a href="#">Политика обработки персональных данных</a>
+                <a href="#">Согласие на рассылку</a>
+                <a href="#">Лицензионное соглашение</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- СКРИПТ КАРТЫ -->
+    <script>
+        ymaps.ready(initMap);
+        
+        function initMap() {
+            var myMap = new ymaps.Map("yandex-map", {
+                center: [55.75, 55.00],
+                zoom: 3,
+                controls: ['zoomControl', 'fullscreenControl']
+            });
+
+            var clubs = [
+                { coords: [55.75, 37.57], name: "Москва" },
+                { coords: [59.93, 30.33], name: "Санкт-Петербург" },
+                { coords: [55.00, 82.93], name: "Новосибирск" },
+                { coords: [56.83, 60.60], name: "Екатеринбург" },
+                { coords: [55.78, 49.12], name: "Казань" },
+                { coords: [54.98, 73.36], name: "Омск" },
+                { coords: [43.22, 76.85], name: "Алматы" },
+                { coords: [41.31, 69.24], name: "Ташкент" },
+                { coords: [42.87, 74.57], name: "Бишкек" },
+                { coords: [53.90, 27.56], name: "Минск" },
+                { coords: [41.71, 44.82], name: "Тбилиси" },
+                { coords: [40.18, 44.51], name: "Ереван" },
+                { coords: [40.41, -3.70], name: "Мадрид" }
+            ];
+
+            clubs.forEach(function(club) {
+                var placemark = new ymaps.Placemark(club.coords, {
+                    hintContent: 'SARSHIM GAME - ' + club.name,
+                    balloonContent: '<strong>' + club.name + '</strong><br>SARSHIM GAME клуб'
+                }, {
+                    preset: 'islands#blackGamepadIcon'
+                });
+                myMap.geoObjects.add(placemark);
+            });
+        }
+    </script>
+</body>
+</html>
