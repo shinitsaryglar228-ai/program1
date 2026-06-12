@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет - SARSHIM SHOP</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+
+    <header class="header">
+        <div class="container header__container">
+
+            <!-- 1. Меню -->
+            <nav class="header__nav nav" id="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link" onclick="logout(); return false;">Выйти</a></li>
+                </ul>
+            </nav>
+
+            <!-- 2. Переключатель темы -->
+            <div class="theme-toggle">
+                <a href="profile.html" class="theme-toggle__btn active" title="Тёмная тема">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </a>
+                <a href="profile_light.html" class="theme-toggle__btn" title="Светлая тема">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- 3. Бургер-меню -->
+            <button class="header__burger burger" id="burger">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="profile">
+            <div class="container">
+                <h1 class="section-title">Личный кабинет</h1>
+                <div class="profile__grid">
+
+                    <!-- Информация о пользователе -->
+                    <div class="profile__block">
+                        <h2 class="profile__title">Информация о пользователе</h2>
+                        <div class="profile__info">
+                            <div class="profile__info-item">
+                                <span class="profile__info-label">E-mail</span>
+                                <span class="profile__info-value">user@sarshim.ru</span>
+                            </div>
+                            <div class="profile__info-item">
+                                <span class="profile__info-label">Фамилия</span>
+                                <span class="profile__info-value">Саршимов</span>
+                            </div>
+                            <div class="profile__info-item">
+                                <span class="profile__info-label">Имя</span>
+                                <span class="profile__info-value">Саршим</span>
+                            </div>
+                            <div class="profile__info-item">
+                                <span class="profile__info-label">Дата рождения</span>
+                                <span class="profile__info-value">01.01.2000</span>
+                            </div>
+                            <div class="profile__info-item">
+                                <span class="profile__info-label">Телефон</span>
+                                <span class="profile__info-value">+7 (999) 999-99-99</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- История покупок -->
+                    <div class="profile__block">
+                        <h2 class="profile__title">История покупок</h2>
+                        <div class="profile__table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Дата</th>
+                                        <th>Название игры</th>
+                                        <th>Стоимость</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>15.10.2024</td>
+                                        <td>Cyberpunk 2077</td>
+                                        <td>2 499 ₽</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20.10.2024</td>
+                                        <td>The Witcher 3</td>
+                                        <td>1 999 ₽</td>
+                                    </tr>
+                                    <tr>
+                                        <td>25.10.2024</td>
+                                        <td>Dark Souls III</td>
+                                        <td>1 799 ₽</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Настройки -->
+                    <div class="profile__block">
+                        <h2 class="profile__title">Настройки профиля</h2>
+                        <div class="profile__settings">
+                            
+                            <!-- ✅ Кнопка "Сменить пароль" — теперь работает! -->
+                            <button type="button" class="btn btn--outline" onclick="openPasswordModal()">
+                                🔒 Сменить пароль
+                            </button>
+                            
+                            <!-- ✅ НОВАЯ кнопка "Сменить пользователя" -->
+                            <button type="button" class="btn btn--outline" onclick="switchUser()">
+                                👤 Сменить пользователя
+                            </button>
+                            
+                            <!-- ✅ Кнопка "Выйти" — теперь работает! -->
+                            <button type="button" class="btn btn--outline" onclick="logout()">
+                                🚪 Выйти из аккаунта
+                            </button>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО ДЛЯ СМЕНЫ ПАРОЛЯ ===== -->
+    <div class="modal-overlay" id="passwordModal">
+        <div class="modal">
+            <button class="modal__close" onclick="closePasswordModal()">✕</button>
+            <h2 class="modal__title">Смена пароля</h2>
+            <form class="form" onsubmit="changePassword(event)">
+                <div class="form__group">
+                    <label for="old-password" class="form__label">Старый пароль *</label>
+                    <input type="password" id="old-password" class="form__input" required>
+                </div>
+                <div class="form__group">
+                    <label for="new-password" class="form__label">Новый пароль *</label>
+                    <input type="password" id="new-password" class="form__input" required minlength="6">
+                </div>
+                <div class="form__group">
+                    <label for="confirm-password" class="form__label">Подтвердите новый пароль *</label>
+                    <input type="password" id="confirm-password" class="form__input" required minlength="6">
+                </div>
+                <button type="submit" class="btn">Сменить пароль</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__contacts">
+                    <p class="footer__phone">+7 (999) 999-99-99</p>
+                    <p class="footer__email">sarshim@shop.ru</p>
+                    <nav class="footer__nav">
+                        <a href="#" class="footer__link">Клиентам</a>
+                        <a href="#" class="footer__link">Партнерам</a>
+                        <a href="#" class="footer__link">О нас</a>
+                        <a href="#" class="footer__link">Контакты</a>
+                    </nav>
+                </div>
+                <div class="footer__nav-main">
+                    <h3 class="footer__title">Навигация</h3>
+                    <a href="index.html" class="footer__link">Главная</a>
+                    <a href="register.html" class="footer__link">Регистрация</a>
+                    <a href="login.html" class="footer__link">Авторизация</a>
+                    <a href="profile.html" class="footer__link">Личный кабинет</a>
+                    <a href="#search" class="footer__link">Поиск</a>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <p>&copy; 2024 SARSHIM SHOP. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ДЛЯ КНОПОК ===== -->
+    <script>
+        // Открыть окно смены пароля
+        function openPasswordModal() {
+            document.getElementById('passwordModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Блокируем прокрутку
+        }
+
+        // Закрыть окно смены пароля
+        function closePasswordModal() {
+            document.getElementById('passwordModal').classList.remove('active');
+            document.body.style.overflow = ''; // Возвращаем прокрутку
+            // Очищаем форму
+            document.getElementById('passwordModal').querySelector('form').reset();
+        }
+
+        // Смена пароля (обработка формы)
+        function changePassword(event) {
+            event.preventDefault();
+            
+            const oldPass = document.getElementById('old-password').value;
+            const newPass = document.getElementById('new-password').value;
+            const confirmPass = document.getElementById('confirm-password').value;
+
+            // Проверка совпадения паролей
+            if (newPass !== confirmPass) {
+                alert('❌ Новый пароль и подтверждение не совпадают!');
+                return;
+            }
+
+            // Проверка длины
+            if (newPass.length < 6) {
+                alert('❌ Новый пароль должен быть не менее 6 символов!');
+                return;
+            }
+
+            // Успех (в реальном проекте здесь был бы запрос на сервер)
+            alert('✅ Пароль успешно изменён!');
+            closePasswordModal();
+        }
+
+        // Выход из аккаунта
+        function logout() {
+            if (confirm('Вы уверены, что хотите выйти?')) {
+                // Очищаем данные пользователя (если они есть в localStorage)
+                localStorage.removeItem('currentUser');
+                localStorage.removeItem('userEmail');
+                
+                // Показываем сообщение и переходим на главную
+                alert('👋 Вы вышли из аккаунта. До встречи!');
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Смена пользователя
+        function switchUser() {
+            if (confirm('Войти под другим пользователем? Текущий сеанс будет завершён.')) {
+                // Очищаем все данные
+                localStorage.clear();
+                
+                // Переходим на страницу входа
+                alert('🔄 Перенаправляем на страницу входа...');
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Закрытие модалки по клику на оверлей (вне окна)
+        document.getElementById('passwordModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePasswordModal();
+            }
+        });
+
+        // Закрытие модалки по клавише Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePasswordModal();
+            }
+        });
+    </script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

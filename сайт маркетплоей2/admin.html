@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель - GameSadyg</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">
+                <svg width="140" height="40" viewBox="0 0 140 40"><text x="0" y="28" font-family="Montserrat" font-weight="800" font-size="24" fill="#fff">Game<span fill="#ff4d4d">Sadyg</span></text></svg>
+            </a>
+            <nav class="nav header__nav"><ul class="nav__list"><li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li></ul></nav>
+        </div>
+    </header>
+
+    <main class="main auth-page">
+        <div class="container">
+            <form class="auth-form admin-form" action="#">
+                <h1 class="auth-form__title">Добавить новую игру</h1>
+                
+                <div class="form-group"><label for="adm-name" class="form-group__label">Название игры</label><input type="text" id="adm-name" class="form-group__input" required></div>
+                <div class="form-group"><label for="adm-genre" class="form-group__label">Жанр</label><input type="text" id="adm-genre" class="form-group__input" required></div>
+                <div class="form-group"><label for="adm-img" class="form-group__label">Изображение</label><input type="file" id="adm-img" class="form-group__input" required></div>
+                <div class="form-group"><label for="adm-dev" class="form-group__label">Компания-разработчик</label><input type="text" id="adm-dev" class="form-group__input" required></div>
+                <div class="form-group"><label for="adm-desc" class="form-group__label">Описание</label><textarea id="adm-desc" class="form-group__input" rows="4" required></textarea></div>
+                <div class="form-group"><label for="adm-price" class="form-group__label">Стоимость</label><input type="number" id="adm-price" class="form-group__input" required></div>
+                
+                <button type="submit" class="btn auth-form__btn">Добавить</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer"><div class="container"><p class="footer__copyright">&copy; 2024 GameSadyg</p></div></footer>
+</body>
+</html>

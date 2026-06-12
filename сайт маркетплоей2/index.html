@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameSadyg - Маркетплейс компьютерных игр</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+
+    <header class="header">
+        <div class="container header__container">
+
+            <nav class="header__nav nav" id="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#search" class="nav__link">Поиск</a></li>
+                    <li class="nav__item"><a href="login.html" class="nav__link">Войти</a></li>
+                    <li class="nav__item"><a href="profile.html" class="nav__link">Личный кабинет</a></li>
+                    <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог игр</a></li>
+                </ul>
+            </nav>
+
+            <div class="theme-toggle">
+                <a href="index.html" class="theme-toggle__btn active" title="Тёмная тема">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </a>
+                <a href="index_light.html" class="theme-toggle__btn" title="Светлая тема">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </a>
+            </div>
+
+            <button class="header__burger burger" id="burger">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- ===== СЛАЙДЕР ===== -->
+        <section class="hero-slider slider">
+            <div class="container">
+                <div class="slider__wrapper">
+                    <div class="slider__track" id="sliderTrack">
+
+                        <div class="slider__slide">
+                            <img src="Обложка_компьютерной_игры_Cyberpunk_2077.jpg" alt="Cyberpunk 2077" class="slide__image">
+                            <div class="slide__content">
+                                <h2 class="slide__title">Cyberpunk 2077</h2>
+                                <p class="slide__price">2 499 ₽</p>
+                                <a href="catalog.html" class="slide__btn btn">Подробнее</a>
+                            </div>
+                        </div>
+
+                        <div class="slider__slide">
+                            <img src="the witcher 3.png" alt="The Witcher 3" class="slide__image">
+                            <div class="slide__content">
+                                <h2 class="slide__title">The Witcher 3: Wild Hunt</h2>
+                                <p class="slide__price">1 999 ₽</p>
+                                <a href="catalog.html" class="slide__btn btn">Подробнее</a>
+                            </div>
+                        </div>
+
+                        <div class="slider__slide">
+                            <img src="Dark_souls_3_cover_art.jpg" alt="Dark Souls III" class="slide__image">
+                            <div class="slide__content">
+                                <h2 class="slide__title">Dark Souls III</h2>
+                                <p class="slide__price">1 799 ₽</p>
+                                <a href="catalog.html" class="slide__btn btn">Подробнее</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="slider__arrow slider__arrow--prev" id="prevBtn" type="button">‹</button>
+                    <button class="slider__arrow slider__arrow--next" id="nextBtn" type="button">›</button>
+                </div>
+
+                <div class="slider__dots" id="sliderDots">
+                    <button class="slider__dot active" data-slide="0" type="button"></button>
+                    <button class="slider__dot" data-slide="1" type="button"></button>
+                    <button class="slider__dot" data-slide="2" type="button"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Быстрый поиск -->
+        <section class="quick-search search" id="search">
+            <div class="container">
+                <h2 class="section-title">Быстрый поиск</h2>
+                <form class="search__form" action="catalog.html" method="get">
+                    <input type="text" class="search__input" placeholder="Введите название игры или жанр..." name="query">
+                    <button type="submit" class="search__btn btn">Найти</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Преимущества -->
+        <section class="advantages">
+            <div class="container">
+                <h2 class="section-title">Почему выбирают нас</h2>
+                <div class="advantages__grid">
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">💰</div>
+                        <h3 class="advantage-card__title">Привлекательные цены</h3>
+                        <p class="advantage-card__text">Экономьте на каждом заказе. Мы предлагаем выгодные условия и низкие цены на каждую покупку!</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">🎁</div>
+                        <h3 class="advantage-card__title">Ежемесячные акции</h3>
+                        <p class="advantage-card__text">Специальные предложения каждый месяц! Получайте бонусы и участвуйте в розыгрышах призов!</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">🎧</div>
+                        <h3 class="advantage-card__title">Круглосуточная поддержка</h3>
+                        <p class="advantage-card__text">Поддерживаем вас круглосуточно! Любые вопросы решаются быстро и эффективно!</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="advantage-card__icon">⚡</div>
+                        <h3 class="advantage-card__title">Быстрая покупка</h3>
+                        <p class="advantage-card__text">Покупайте мгновенно! Просто выберите товар и нажмите "Купить"!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Популярные игры -->
+        <section class="popular-games games">
+            <div class="container">
+                <h2 class="section-title">Популярные игры</h2>
+                <div class="games__grid">
+
+                    <article class="game-card">
+                        <img src="Обложка_компьютерной_игры_Cyberpunk_2077.jpg" alt="Cyberpunk 2077" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Cyberpunk 2077</h3>
+                            <p class="game-card__genre">RPG</p>
+                            <p class="game-card__developer">CD Projekt Red</p>
+                            <div class="game-card__rating">★★★★★</div>
+                            <p class="game-card__price">2 499 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="the witcher 3.jpg" alt="The Witcher 3" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">The Witcher 3</h3>
+                            <p class="game-card__genre">RPG</p>
+                            <p class="game-card__developer">CD Projekt Red</p>
+                            <div class="game-card__rating">★★★★★</div>
+                            <p class="game-card__price">1 999 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="rust.jpg" alt="Rust" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Rust</h3>
+                            <p class="game-card__genre">Survival</p>
+                            <p class="game-card__developer">Facepunch Studios</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">1 099 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="Dark_souls_3_cover_art.jpg" alt="Dark Souls III" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Dark Souls III</h3>
+                            <p class="game-card__genre">Action RPG</p>
+                            <p class="game-card__developer">FromSoftware</p>
+                            <div class="game-card__rating">★★★★★</div>
+                            <p class="game-card__price">1 799 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="boducadm.jpg" alt="Bodycam" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Bodycam</h3>
+                            <p class="game-card__genre">Шутер</p>
+                            <p class="game-card__developer">Rivet Games</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">1 299 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="assasin.jpg" alt="Assassin's Creed" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Assassin's Creed Valhalla</h3>
+                            <p class="game-card__genre">Action RPG</p>
+                            <p class="game-card__developer">Ubisoft</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">2 199 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="arc raidres.jpg" alt="ARC Raiders" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">ARC Raiders</h3>
+                            <p class="game-card__genre">Шутер</p>
+                            <p class="game-card__developer">Embark Studios</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">1 999 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="alcemu factory.jpg" alt="Alchemy Factory" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Alchemy Factory</h3>
+                            <p class="game-card__genre">Крафт / Симулятор</p>
+                            <p class="game-card__developer">Indie Studio</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">899 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Партнёры -->
+        <section class="partners">
+            <div class="container">
+                <h2 class="section-title">Наши партнеры</h2>
+                <div class="partners__grid">
+                    <img src="avalein comic.jpg" alt="Avalon Comics & Games" class="partners__logo">
+                    <img src="playrix.jpg" alt="PlayRix Entertainment" class="partners__logo">
+                    <img src="ea.png" alt="EA Sports" class="partners__logo">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__contacts">
+                    <p class="footer__phone">+7 (999) 999-99-99</p>
+                    <p class="footer__email">sarshim@shop.ru</p>
+                    <nav class="footer__nav">
+                        <a href="#" class="footer__link">Клиентам</a>
+                        <a href="#" class="footer__link">Партнерам</a>
+                        <a href="#" class="footer__link">О нас</a>
+                        <a href="#" class="footer__link">Контакты</a>
+                    </nav>
+                </div>
+                <div class="footer__nav-main">
+                    <h3 class="footer__title">Навигация</h3>
+                    <a href="index.html" class="footer__link">Главная</a>
+                    <a href="register.html" class="footer__link">Регистрация</a>
+                    <a href="login.html" class="footer__link">Авторизация</a>
+                    <a href="profile.html" class="footer__link">Личный кабинет</a>
+                    <a href="#search" class="footer__link">Поиск</a>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <p>&copy; 2024 SARSHIM SHOP. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== ВСТРОЕННЫЙ JAVASCRIPT (работает без внешних файлов!) ===== -->
+    <script>
+        // === СЛАЙДЕР ===
+        (function() {
+            const track = document.getElementById('sliderTrack');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('sliderDots');
+            
+            if (!track || !prevBtn || !nextBtn || !dotsContainer) {
+                console.log('Слайдер не найден на странице');
+                return;
+            }
+            
+            const slides = track.querySelectorAll('.slider__slide');
+            const dots = dotsContainer.querySelectorAll('.slider__dot');
+            let currentSlide = 0;
+            let autoSlideInterval;
+            const autoSlideDelay = 5000; // 5 секунд
+
+            function goToSlide(index) {
+                if (index < 0) index = slides.length - 1;
+                if (index >= slides.length) index = 0;
+                
+                currentSlide = index;
+                track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+                
+                dots.forEach(function(dot, i) {
+                    if (i === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                goToSlide(currentSlide + 1);
+            }
+
+            function prevSlide() {
+                goToSlide(currentSlide - 1);
+            }
+
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, autoSlideDelay);
+            }
+
+            function stopAutoSlide() {
+                clearInterval(autoSlideInterval);
+            }
+
+            // Клик по стрелкам
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+                stopAutoSlide();
+                startAutoSlide();
+            });
+
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                stopAutoSlide();
+                startAutoSlide();
+            });
+
+            // Клик по точкам
+            dots.forEach(function(dot, index) {
+                dot.addEventListener('click', function() {
+                    goToSlide(index);
+                    stopAutoSlide();
+                    startAutoSlide();
+                });
+            });
+
+            // Пауза при наведении
+            const wrapper = track.closest('.slider__wrapper');
+            if (wrapper) {
+                wrapper.addEventListener('mouseenter', stopAutoSlide);
+                wrapper.addEventListener('mouseleave', startAutoSlide);
+            }
+
+            // Запуск
+            goToSlide(0);
+            startAutoSlide();
+            console.log('Слайдер запущен! Слайдов:', slides.length);
+        })();
+
+        // === БУРГЕР-МЕНЮ ===
+        (function() {
+            const burger = document.getElementById('burger');
+            const nav = document.getElementById('nav');
+            
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    burger.classList.toggle('active');
+                    nav.classList.toggle('active');
+                });
+                
+                // Закрытие при клике на ссылку
+                nav.querySelectorAll('a').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        burger.classList.remove('active');
+                        nav.classList.remove('active');
+                    });
+                });
+            }
+        })();
+    </script>
+
+</body>
+</html>

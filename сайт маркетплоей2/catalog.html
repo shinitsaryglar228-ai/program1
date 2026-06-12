@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог игр - SARSHIM SHOP</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <header class="header">
+        <div class="container header__container">
+            <nav class="header__nav nav" id="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="index.html#search" class="nav__link">Поиск</a></li>
+                    <li class="nav__item"><a href="login.html" class="nav__link">Войти</a></li>
+                    <li class="nav__item"><a href="profile.html" class="nav__link">Личный кабинет</a></li>
+                    <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог игр</a></li>
+                </ul>
+            </nav>
+
+            <div class="theme-toggle">
+                <a href="catalog.html" class="theme-toggle__btn active" title="Тёмная тема">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </a>
+                <a href="catalog_light.html" class="theme-toggle__btn" title="Светлая тема">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </a>
+            </div>
+            
+            <button class="header__burger burger" id="burger">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main catalog">
+        <div class="container">
+            <h1 class="section-title">Каталог игр</h1>
+            
+            <div class="catalog__layout">
+                <!-- БОКОВАЯ ПАНЕЛЬ С ФИЛЬТРАМИ -->
+                <aside class="catalog__sidebar">
+                    <h3 class="catalog__sidebar-title">Фильтры</h3>
+                    
+                    <div class="filter__group">
+                        <h4 class="filter__title">Жанр</h4>
+                        <label class="filter__option"><input type="checkbox" name="genre" value="rpg"> RPG</label>
+                        <label class="filter__option"><input type="checkbox" name="genre" value="action"> Action</label>
+                        <label class="filter__option"><input type="checkbox" name="genre" value="shooter"> Шутер</label>
+                        <label class="filter__option"><input type="checkbox" name="genre" value="survival"> Survival</label>
+                        <label class="filter__option"><input type="checkbox" name="genre" value="simulator"> Симулятор</label>
+                    </div>
+                    
+                    <div class="filter__group">
+                        <h4 class="filter__title">Цена</h4>
+                        <label class="filter__option"><input type="checkbox" name="price" value="low"> До 1000 ₽</label>
+                        <label class="filter__option"><input type="checkbox" name="price" value="mid"> 1000 - 2000 ₽</label>
+                        <label class="filter__option"><input type="checkbox" name="price" value="high"> Более 2000 ₽</label>
+                    </div>
+                    
+                    <div class="filter__group">
+                        <h4 class="filter__title">Рейтинг</h4>
+                        <label class="filter__option"><input type="checkbox" name="rating" value="5"> ★★★★★</label>
+                        <label class="filter__option"><input type="checkbox" name="rating" value="4"> ★★★★☆ и выше</label>
+                    </div>
+                    
+                    <button class="btn" style="width: 100%; margin-top: 15px;">Применить</button>
+                </aside>
+                
+                <!-- СЕТКА С ИГРАМИ -->
+                <div class="catalog__grid">
+                    
+                    <article class="game-card">
+                        <img src="Обложка_компьютерной_игры_Cyberpunk_2077.jpg" alt="Cyberpunk 2077" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Cyberpunk 2077</h3>
+                            <p class="game-card__genre">RPG</p>
+                            <p class="game-card__developer">CD Projekt Red</p>
+                            <div class="game-card__rating">★★★★★</div>
+                            <p class="game-card__price">2 499 ₽</p>
+                            <a href="#" class="game-card__btn btn">Купить</a>
+                        </div>
+                    </article>
+                    
+                    <article class="game-card">
+                       <img src="the witcher 3.jpg" alt="The Witcher 3" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">The Witcher 3</h3>
+                            <p class="game-card__genre">RPG</p>
+                            <p class="game-card__developer">CD Projekt Red</p>
+                            <div class="game-card__rating">★★★★★</div>
+                            <p class="game-card__price">1 999 ₽</p>
+                            <a href="#" class="game-card__btn btn">Купить</a>
+                        </div>
+                    </article>
+                    
+
+                    <article class="game-card">
+                        <img src="rust.jpg" alt="Rust" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Rust</h3>
+                            <p class="game-card__genre">Survival</p>
+                            <p class="game-card__developer">Facepunch Studios</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">1 099 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="Dark_souls_3_cover_art.jpg" alt="Dark Souls III" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Dark Souls III</h3>
+                            <p class="game-card__genre">Action RPG</p>
+                            <p class="game-card__developer">FromSoftware</p>
+                            <div class="game-card__rating">★★★★★</div>
+                            <p class="game-card__price">1 799 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="boducadm.jpg" alt="Bodycam" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Bodycam</h3>
+                            <p class="game-card__genre">Шутер</p>
+                            <p class="game-card__developer">Rivet Games</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">1 299 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="assasin.jpg" alt="Assassin's Creed" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Assassin's Creed Valhalla</h3>
+                            <p class="game-card__genre">Action RPG</p>
+                            <p class="game-card__developer">Ubisoft</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">2 199 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="arc raidres.jpg" alt="ARC Raiders" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">ARC Raiders</h3>
+                            <p class="game-card__genre">Шутер</p>
+                            <p class="game-card__developer">Embark Studios</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">1 999 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="game-card">
+                        <img src="alcemu factory.jpg" alt="Alchemy Factory" class="game-card__image">
+                        <div class="game-card__content">
+                            <h3 class="game-card__title">Alchemy Factory</h3>
+                            <p class="game-card__genre">Крафт / Симулятор</p>
+                            <p class="game-card__developer">Indie Studio</p>
+                            <div class="game-card__rating">★★★★☆</div>
+                            <p class="game-card__price">899 ₽</p>
+                            <a href="catalog.html" class="game-card__btn btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__contacts">
+                    <p class="footer__phone">+7 (999) 999-99-99</p>
+                    <p class="footer__email">sarshim@shop.ru</p>
+                    <nav class="footer__nav">
+                        <a href="#" class="footer__link">Клиентам</a>
+                        <a href="#" class="footer__link">Партнерам</a>
+                        <a href="#" class="footer__link">О нас</a>
+                        <a href="#" class="footer__link">Контакты</a>
+                    </nav>
+                </div>
+                <div class="footer__nav-main">
+                    <h3 class="footer__title">Навигация</h3>
+                    <a href="index.html" class="footer__link">Главная</a>
+                    <a href="register.html" class="footer__link">Регистрация</a>
+                    <a href="login.html" class="footer__link">Авторизация</a>
+                    <a href="profile.html" class="footer__link">Личный кабинет</a>
+                    <a href="#search" class="footer__link">Поиск</a>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <p>&copy; 2026 GameSadyg. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
