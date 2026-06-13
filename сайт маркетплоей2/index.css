@@ -1,9 +1,4 @@
-/* ========================================
-   SARSHIM SHOP - Маркетплейс игр
-   Шрифты: Orbitron (заголовки) + Roboto (текст)
-   Цвета: #0a0a0a (фон), #ff0040 (акцент)
-   Методология: БЭМ
-   ======================================== */
+
 
 /* --- Импорт шрифтов --- */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap');
@@ -118,9 +113,8 @@ img { max-width: 100%; display: block; }
 
 .btn--outline:hover { background: var(--accent); color: #fff; }
 
-/* ========================================
    HEADER (шапка)
-   ======================================== */
+
 .header {
     position: fixed;
     top: 0;
@@ -238,14 +232,11 @@ img { max-width: 100%; display: block; }
 .burger.active .burger__line:nth-child(2) { opacity: 0; }
 .burger.active .burger__line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-/* ========================================
    MAIN
-   ======================================== */
+
 .main { padding-top: 80px; }
 
-/* ========================================
    СЛАЙДЕР (автоматический, под JS)
-   ======================================== */
 .hero-slider {
     padding: 30px 0 50px;
     background: var(--bg-main);
@@ -374,9 +365,9 @@ img { max-width: 100%; display: block; }
     box-shadow: 0 0 10px rgba(255, 0, 64, 0.6);
 }
 
-/* ========================================
+
    ПОИСК
-   ======================================== */
+
 .quick-search {
     padding: 60px 0;
     background: var(--bg-secondary);
@@ -404,9 +395,8 @@ img { max-width: 100%; display: block; }
 .search__input:focus { border-color: var(--accent); }
 .search__btn { width: 100%; }
 
-/* ========================================
    ПРЕИМУЩЕСТВА
-   ======================================== */
+
 .advantages {
     padding: 60px 0;
     background: var(--bg-main);
@@ -443,9 +433,8 @@ img { max-width: 100%; display: block; }
 
 .advantage-card__text { color: var(--text-muted); font-size: 14px; }
 
-/* ========================================
    КАРТОЧКИ ИГР
-   ======================================== */
+
 .games {
     padding: 60px 0;
     background: var(--bg-secondary);
@@ -516,9 +505,9 @@ img { max-width: 100%; display: block; }
     font-size: 12px;
 }
 
-/* ========================================
+/* 
    ПАРТНЁРЫ
-   ======================================== */
+ */
 .partners {
     padding: 60px 0;
     background: var(--bg-main);
@@ -547,9 +536,9 @@ img { max-width: 100%; display: block; }
     transform: scale(1.1);
 }
 
-/* ========================================
+/* 
    ФУТЕР
-   ======================================== */
+ */
 .footer {
     background: var(--bg-secondary);
     padding: 50px 0 20px;
