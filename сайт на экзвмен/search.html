@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор зоны</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .map-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        .legend-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .zone {
+            padding: 25px 15px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+            border: 2px solid transparent;
+        }
+        .zone:hover {
+            transform: scale(1.03);
+        }
+        .zone-free {
+            background: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+        .zone-taken {
+            background: #f8d7da;
+            color: #721c24;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        .zone-selected {
+            background: #ff9f1c;
+            color: #fff;
+            border-color: #e68a00;
+        }
+        .zone-name {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .zone-price {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+        .zone-capacity {
+            font-size: 12px;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+        .location-info {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .location-info h3 {
+            color: #2b3a67;
+            margin-bottom: 5px;
+        }
+        .location-info p {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">Праздник <span>в каждый дом</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="search.html">Назад к поиску</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 40px; padding-bottom: 40px;">
+        <h2 class="section-title">Выберите свободную зону</h2>
+
+        <div class="location-info">
+            <h3>Туристическая база «Озеро Красилово»</h3>
+            <p>Алтайский край, Косихинский район, с. Озеро-Красилово, ул. Пушкина д. 1</p>
+            <p style="margin-top: 8px; font-weight: bold; color: #2b3a67;">Дата: 20.08.2026</p>
+        </div>
+
+        <div class="map-container">
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-box" style="background: #d4edda;"></div>
+                    <span>Свободно</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box" style="background: #f8d7da;"></div>
+                    <span>Занято</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box" style="background: #ff9f1c;"></div>
+                    <span>Ваш выбор</span>
+                </div>
+            </div>
+
+            <div class="map-grid">
+                <!-- Шатры -->
+                <div class="zone zone-free" onclick="selectZone(this)">
+                    <div class="zone-name">Шатёр №1</div>
+                    <div class="zone-price">5000 ₽/сутки</div>
+                    <div class="zone-capacity">до 50 чел</div>
+                </div>
+                <div class="zone zone-taken">
+                    <div class="zone-name">Шатёр №2</div>
+                    <div class="zone-price">Занято</div>
+                    <div class="zone-capacity">до 50 чел</div>
+                </div>
+
+                <!-- Летние домики -->
+                <div class="zone zone-free" onclick="selectZone(this)">
+                    <div class="zone-name">Летний домик №1</div>
+                    <div class="zone-price">5000 ₽/сутки</div>
+                    <div class="zone-capacity">до 10 чел</div>
+                </div>
+                <div class="zone zone-free" onclick="selectZone(this)">
+                    <div class="zone-name">Летний домик №2</div>
+                    <div class="zone-price">5000 ₽/сутки</div>
+                    <div class="zone-capacity">до 10 чел</div>
+                </div>
+                <div class="zone zone-taken">
+                    <div class="zone-name">Летний домик №3</div>
+                    <div class="zone-price">Занято</div>
+                    <div class="zone-capacity">до 10 чел</div>
+                </div>
+                <div class="zone zone-free" onclick="selectZone(this)">
+                    <div class="zone-name">Летний домик №4</div>
+                    <div class="zone-price">5000 ₽/сутки</div>
+                    <div class="zone-capacity">до 10 чел</div>
+                </div>
+
+                <!-- Беседки -->
+                <div class="zone zone-free" onclick="selectZone(this)">
+                    <div class="zone-name">Беседка №1</div>
+                    <div class="zone-price">2000 ₽/сутки</div>
+                    <div class="zone-capacity">до 15 чел</div>
+                </div>
+                <div class="zone zone-free" onclick="selectZone(this)">
+                    <div class="zone-name">Беседка №2</div>
+                    <div class="zone-price">2000 ₽/сутки</div>
+                    <div class="zone-capacity">до 15 чел</div>
+                </div>
+                <div class="zone zone-taken">
+                    <div class="zone-name">Беседка №3</div>
+                    <div class="zone-price">Занято</div>
+                    <div class="zone-capacity">до 15 чел</div>
+                </div>
+                <div class="zone zone-free" onclick="selectZone(this)">
+                    <div class="zone-name">Беседка №4</div>
+                    <div class="zone-price">2000 ₽/сутки</div>
+                    <div class="zone-capacity">до 15 чел</div>
+                </div>
+
+                <!-- Игровая комната -->
+                <div class="zone zone-free" onclick="selectZone(this)">
+                    <div class="zone-name">Игровая комната</div>
+                    <div class="zone-price">300 ₽/час</div>
+                    <div class="zone-capacity">до 10 чел</div>
+                </div>
+
+                <!-- Спортивная площадка -->
+                <div class="zone zone-free" onclick="selectZone(this)">
+                    <div class="zone-name">Спортивная площадка</div>
+                    <div class="zone-price">200 ₽/час</div>
+                    <div class="zone-capacity">до 15 чел</div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="booking.html" class="btn" id="proceedBtn" style="opacity: 0.5; pointer-events: none;">Перейти к бронированию</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h3>Контакты</h3>
+                <p>Телефон: <strong>8 (800) 222-35-35</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function selectZone(element) {
+            // убираем выделение со всех зон
+            document.querySelectorAll('.zone').forEach(function(z) {
+                if (z.classList.contains('zone-selected')) {
+                    z.classList.remove('zone-selected');
+                    z.classList.add('zone-free');
+                }
+            });
+
+            // выделяем выбранную
+            element.classList.remove('zone-free');
+            element.classList.add('zone-selected');
+
+            // активируем кнопку
+            var btn = document.getElementById('proceedBtn');
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+        }
+    </script>
+
+</body>
+</html>

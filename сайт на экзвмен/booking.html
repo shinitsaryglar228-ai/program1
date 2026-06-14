@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирование</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">Праздник <span>в каждый дом</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="seat.html">Назад к выбору зоны</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="container" style="padding-top: 40px; padding-bottom: 40px;">
+        <h2 class="section-title">Оформление бронирования</h2>
+
+        <form action="#" method="POST">
+            <div class="booking-layout">
+                
+            
+                <div>
+                    <div class="info-block">
+                        <h3 style="margin-bottom: 20px; color: #2b3a67;">Данные о заказе</h3>
+                        <div class="info-row">
+                            <span>Регион:</span>
+                            <span>Москва и МО</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Локация:</span>
+                            <span>Семейный клуб "Сказка"</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Адрес:</span>
+                            <span>г. Москва, ул. Ленина, д. 15</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Дата:</span>
+                            <span>20.08.2026</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Количество человек:</span>
+                            <span>15 (10 детей, 5 взрослых)</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Выбранная зона:</span>
+                            <span>VIP Зона (7000 ₽)</span>
+                        </div>
+                        <div class="info-row">
+    <span>Выбранная зона:</span>
+    <span>VIP Зона (7000 ₽)</span>
+</div>
+                    </div>
+
+                    <div class="info-block">
+                        <h3 style="margin-bottom: 20px; color: #2b3a67;">Дополнительные услуги</h3>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="food" name="services" value="food">
+                            <label for="food">Организация питания (+500 ₽/чел)</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="animator" name="services" value="animator">
+                            <label for="animator">Услуги аниматоров (3000 ₽/час)</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="host" name="services" value="host">
+                            <label for="host">Услуги ведущего (5000 ₽)</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="taxi" name="services" value="taxi">
+                            <label for="taxi">Услуги детского такси (2000 ₽)</label>
+                        </div>
+                    </div>
+                </div>
+
+            
+                <div>
+                    <div class="info-block">
+                        <h3 style="margin-bottom: 20px; color: #2b3a67;">Контакты и комментарии</h3>
+                        <div class="form-group">
+                            <label for="email">Email для отправки чека *</label>
+                            <input type="email" id="email" name="email" placeholder="example@mail.ru" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Дополнительный комментарий</label>
+                            <textarea id="comment" name="comment" rows="5" placeholder="Аллергии у детей, особые пожелания..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="info-block" style="text-align: center; background: #f9f9f9;">
+                        <p style="font-size: 18px; margin-bottom: 10px;">Итоговая стоимость:</p>
+                        <div class="total-price" id="totalPrice">7 000 ₽</div>
+                        <button type="submit" class="btn" style="width: 100%; font-size: 18px; padding: 15px;">
+                            Оформить бронирование
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </main>
+
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h3>Контакты</h3>
+                <p>Телефон: <strong>8 (800) 222-35-35</strong></p>
+            </div>
+        </div>
+    </footer>
+
+  
+    <script>
+        const basePrice = 7000;
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const totalDisplay = document.getElementById('totalPrice');
+
+        const prices = {
+            food: 500 * 15,
+            animator: 3000,
+            host: 5000,
+            taxi: 2000
+        };
+
+        function updateTotal() {
+            let total = basePrice;
+            checkboxes.forEach(cb => {
+                if(cb.checked && prices[cb.value]) {
+                    total += prices[cb.value];
+                }
+            });
+            totalDisplay.textContent = total.toLocaleString('ru-RU') + ' ₽';
+        }
+
+        checkboxes.forEach(cb => cb.addEventListener('change', updateTotal));
+    </script>
+
+</body>
+</html>

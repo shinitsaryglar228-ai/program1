@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Праздник в каждый дом</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* стили для галереи */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .promo-card {
+            border: 2px solid #ff9f1c;
+        }
+        .promo-label {
+            background: #ff9f1c;
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 8px 8px 0 0;
+        }
+        .location-block {
+            margin-bottom: 40px;
+        }
+        .location-block h3 {
+            color: #2b3a67;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+        .location-block .address {
+            color: #666;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- шапка -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">Праздник <span>в каждый дом</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="#locations">Локации</a></li>
+                    <li><a href="#promos">Акции</a></li>
+                    <li><a href="booking.html">Управление бронированием</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- главный экран -->
+        <section style="background: linear-gradient(135deg, #2b3a67 0%, #1f2a4d 100%); color: #fff; text-align: center; padding: 80px 0;">
+            <div class="container">
+                <h1 style="font-size: 42px; margin-bottom: 20px;">Подарим волшебство для Ваших детей!</h1>
+                <p style="font-size: 20px; opacity: 0.9; max-width: 700px; margin: 0 auto 30px;">
+                    Наша цель – сделать праздничные дни незабываемыми для детей и их родителей. 
+                    Мы берем на себя все заботы, чтобы вы просто наслаждались моментом.
+                </p>
+                <a href="#search" class="btn">Подобрать праздник</a>
+            </div>
+        </section>
+
+        <!-- шаги -->
+        <section>
+            <div class="container">
+                <h2 class="section-title">Как забронировать праздник?</h2>
+                <div class="card-grid">
+                    <div class="card" style="text-align: center; padding: 30px;">
+                        <h3 style="color: #ff9f1c; font-size: 40px;">1</h3>
+                        <p>Выберите даты и количество участников</p>
+                    </div>
+                    <div class="card" style="text-align: center; padding: 30px;">
+                        <h3 style="color: #ff9f1c; font-size: 40px;">2</h3>
+                        <p>Выберите локацию и конкретную зону</p>
+                    </div>
+                    <div class="card" style="text-align: center; padding: 30px;">
+                        <h3 style="color: #ff9f1c; font-size: 40px;">3</h3>
+                        <p>Добавьте услуги и оформите заказ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- поиск -->
+        <section id="search" style="background: #fff;">
+            <div class="container">
+                <h2 class="section-title">Поиск свободных локаций</h2>
+                <form action="search.html" method="GET" style="max-width: 800px; margin: 0 auto; background: #f9f9f9; padding: 30px; border-radius: 10px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label for="region">Регион</label>
+                            <select id="region" name="region" required>
+                                <option value="">Выберите регион</option>
+                                <option value="altai">Алтайский край</option>
+                                <option value="krasnoyarsk">Красноярский край</option>
+                                <option value="tyva">Республика Тыва</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Дата мероприятия</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adults">Количество взрослых</label>
+                            <input type="number" id="adults" name="adults" min="1" max="50" placeholder="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="kids">Количество детей</label>
+                            <input type="number" id="kids" name="kids" min="1" max="50" placeholder="0" required>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button type="submit" class="btn">Поиск</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- галерея -->
+        <section style="background: #fff; padding: 60px 0;">
+            <div class="container">
+                <h2 class="section-title">Наши праздники в фотографиях</h2>
+                <p style="text-align: center; margin-bottom: 30px; color: #666;">Яркие моменты с детских праздников</p>
+                <div class="gallery">
+                    <img src="1.jpeg" alt="Детский праздник с клоунами">
+                    <img src="2.jpg" alt="Праздник с аниматорами">
+                    <img src="3.jpeg" alt="День рождения ребенка">
+                    <img src="11.jpeg" alt="Праздничная программа">
+                </div>
+            </div>
+        </section>
+
+        <!-- отзывы -->
+        <section style="background: #f9f9f9;">
+            <div class="container">
+                <h2 class="section-title">Отзывы наших клиентов</h2>
+                <div class="card-grid">
+                    <div class="card" style="padding: 25px;">
+                        <div style="color: #ff9f1c; font-size: 24px; margin-bottom: 10px;">★★★★★</div>
+                        <p style="margin-bottom: 15px; font-style: italic;">"Долго выбирала между программами трансформеров между разными агентствами. У Вау праздник оказалась самая высокая цена, которая сначала отпугнула, но потом пообщавшись с менеджером мне рассказали отличия программ. Скажу честно до последнего переживала, понравится ли ребенку, но результат превзошел ожидания. Это действительно стоит того. Ни капли не пожалела, что заказала аниматоров именно в этой организации. Рекомендую! Прекрасный сервис и лучшие аниматоры."</p>
+                        <p style="font-weight: bold; color: #2b3a67;">Александра</p>
+                        <p style="color: #999; font-size: 14px;">23 августа 2021</p>
+                    </div>
+                    <div class="card" style="padding: 25px;">
+                        <div style="color: #ff9f1c; font-size: 24px; margin-bottom: 10px;">★★★★★</div>
+                        <p style="margin-bottom: 15px; font-style: italic;">"Хочу выразить благодарность Вау праздник. Ребята молодцы, все организовано от и до. Всегда на связи, ни одно сообщение не осталось без внимания. Аниматоры зажигалки! Спасибо вам большое! Все как обещали, всегда на связи."</p>
+                        <p style="font-weight: bold; color: #2b3a67;">Елена</p>
+                        <p style="color: #999; font-size: 14px;">23 декабря 2020</p>
+                    </div>
+                    <div class="card" style="padding: 25px;">
+                        <div style="color: #ff9f1c; font-size: 24px; margin-bottom: 10px;">★★★★★</div>
+                        <p style="margin-bottom: 15px; font-style: italic;">"Добрый день, Яркий праздник! От имени всех родителей и выпускников детского сада хочу поблагодарить за хорошую организацию нашего праздника. Работа коллектива четкая и слаженная! Банкетный зал порадовал вкусным меню и интерьером. Всем очень понравилось, было весело. Программа получилась настолько увлекательной, что за столом посидеть было некогда. Впечатления остались самые позитивные и незабываемые."</p>
+                        <p style="font-weight: bold; color: #2b3a67;">Диана Таргарян</p>
+                        <p style="color: #999; font-size: 14px;">11 июля 2019</p>
+                    </div>
+                    <div class="card" style="padding: 25px;">
+                        <div style="color: #ff9f1c; font-size: 24px; margin-bottom: 10px;">★★★★★</div>
+                        <p style="margin-bottom: 15px; font-style: italic;">"Правда очень хороший праздник, организация праздника удалась, цены и ассортимент очень радуют!"</p>
+                        <p style="font-weight: bold; color: #2b3a67;">Аноним</p>
+                        <p style="color: #999; font-size: 14px;">Клиент</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- локации -->
+        <section id="locations">
+            <div class="container">
+                <h2 class="section-title">Наши локации</h2>
+                
+                <div class="location-block">
+                    <h3>Алтайский край</h3>
+                    <p style="font-weight: bold;">Туристическая база «Озеро Красилово»</p>
+                    <p class="address">Косихинский район, с. Озеро-Красилово, ул. Пушкина д. 1</p>
+                    
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Шатёр</h4>
+                                <p>2 шт. | Вместимость — до 50 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">5000 р/сутки</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Летний домик</h4>
+                                <p>5 шт. | Вместимость — до 10 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">5000 р/сутки</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Беседка</h4>
+                                <p>10 шт. | Вместимость — до 15 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">2000 р/сутки</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Игровая комната</h4>
+                                <p>1 шт. | Вместимость — до 10 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">300 р/час за посетителя</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Спортивная площадка</h4>
+                                <p>1 шт. | Вместимость — до 15 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">200 р/час за посетителя</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-block">
+                    <h3>Красноярский край</h3>
+                    <p style="font-weight: bold;">Парк-отель «Чайка»</p>
+                    <p class="address">Ачинский район, с. Ключи, Пионерская долина, 5</p>
+                    
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Шатёр</h4>
+                                <p>2 шт. | Вместимость — до 50 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">5000 р/сутки</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Летний домик</h4>
+                                <p>5 шт. | Вместимость — до 10 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">5000 р/сутки</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Беседка</h4>
+                                <p>10 шт. | Вместимость — до 15 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">2000 р/сутки</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Бассейн с зоной отдыха</h4>
+                                <p>1 шт. | Вместимость — до 15 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">2000 р/сутки</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Игровая площадка</h4>
+                                <p>1 шт. | Вместимость — до 10 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">300 р/час за посетителя</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-block">
+                    <h3>Республика Тыва</h3>
+                    <p style="font-weight: bold;">Туристический центр «Азас»</p>
+                    <p class="address">с. Тоора-Хем, ул. Ленина 5</p>
+                    
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Шатёр</h4>
+                                <p>2 шт. | Вместимость — до 50 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">4000 р/сутки</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Летний домик</h4>
+                                <p>5 шт. | Вместимость — до 10 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">5000 р/сутки</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Беседка</h4>
+                                <p>10 шт. | Вместимость — до 15 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">2000 р/сутки</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Бассейн с зоной отдыха</h4>
+                                <p>1 шт. | Вместимость — до 15 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">2000 р/сутки</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Игровая площадка</h4>
+                                <p>1 шт. | Вместимость — до 10 чел</p>
+                                <p style="color: #ff9f1c; font-weight: bold; font-size: 18px;">300 р/час за посетителя</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- акции -->
+        <section id="promos" style="background: #f9f9f9;">
+            <div class="container">
+                <h2 class="section-title">Наши программы и акции</h2>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Карапуз</h3>
+                            <ul style="margin: 15px 0; padding-left: 20px;">
+                                <li>Аниматор (любой персонаж)</li>
+                                <li>Торжественное поздравление</li>
+                                <li>Тематическая программа</li>
+                                <li>Музыкальное сопровождение</li>
+                            </ul>
+                            <p><strong>1 час | до 10 детей</strong></p>
+                            <p style="color: #ff9f1c; font-size: 24px; font-weight: bold; margin: 10px 0;">2700 руб.</p>
+                            <p style="font-size: 14px; color: #666;">2 аниматора: 5000 руб.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Игровой праздник</h3>
+                            <ul style="margin: 15px 0; padding-left: 20px;">
+                                <li>Аниматор (персонаж на выбор)</li>
+                                <li>Торжественное поздравление</li>
+                                <li>Игры, конкурсы</li>
+                                <li>Фотосессия с героем</li>
+                                <li>Музыкальное сопровождение</li>
+                                <li>Делаем лучших друзей из шариков</li>
+                            </ul>
+                            <p><strong>1 час | до 10 детей</strong></p>
+                            <p style="color: #ff9f1c; font-size: 24px; font-weight: bold; margin: 10px 0;">3200 руб.</p>
+                            <p style="font-size: 14px; color: #666;">2 аниматора: 5000 руб.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Фонтан счастья</h3>
+                            <ul style="margin: 15px 0; padding-left: 20px;">
+                                <li>Аниматор (любой персонаж)</li>
+                                <li>Торжественное поздравление</li>
+                                <li>Тысяча мыльных пузырей</li>
+                                <li>Тематическая программа</li>
+                                <li>Музыкальное сопровождение</li>
+                            </ul>
+                            <p><strong>1 час | до 10 детей</strong></p>
+                            <p style="color: #ff9f1c; font-size: 24px; font-weight: bold; margin: 10px 0;">3900 руб.</p>
+                            <p style="font-size: 14px; color: #666;">2 аниматора: 5000 руб.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Озорник</h3>
+                            <ul style="margin: 15px 0; padding-left: 20px;">
+                                <li>Аниматор (любой персонаж)</li>
+                                <li>Незабываемое приключение</li>
+                                <li>Пиньята с конфетками</li>
+                                <li>Игрушки из шариков</li>
+                                <li>Музыкальное сопровождение</li>
+                                <li>Торжественное завершение праздника</li>
+                            </ul>
+                            <p><strong>1 час | до 10 детей</strong></p>
+                            <p style="color: #ff9f1c; font-size: 24px; font-weight: bold; margin: 10px 0;">4900 руб.</p>
+                            <p style="font-size: 14px; color: #666;">2 аниматора: 5000 руб.</p>
+                        </div>
+                    </div>
+
+                    <div class="card promo-card">
+                        <div class="promo-label">ГОТОВЫЙ ПАКЕТ</div>
+                        <div class="card-body">
+                            <h3>УДАЧНЫЙ</h3>
+                            <ul style="margin: 15px 0; padding-left: 20px;">
+                                <li>1 час театрализованного действия 1 аниматора</li>
+                                <li>Аквагрим и фигурки из шаров всем детям</li>
+                                <li>Игры, конкурсы, поздравления</li>
+                                <li>Миниквест с поиском подарка</li>
+                                <li>Шар сюрприз</li>
+                            </ul>
+                            <p><strong>1,5 часа | до 10 детей</strong></p>
+                            <p style="color: #ff9f1c; font-size: 24px; font-weight: bold; margin: 10px 0;">6800 руб.</p>
+                            <p style="text-decoration: line-through; color: #999;">9500 руб.</p>
+                        </div>
+                    </div>
+
+                    <div class="card promo-card">
+                        <div class="promo-label">ХИТ ПРОДАЖ</div>
+                        <div class="card-body">
+                            <h3>ОПТИМАЛЬНЫЙ</h3>
+                            <ul style="margin: 15px 0; padding-left: 20px;">
+                                <li>1 час театрализованного действия 1 аниматора</li>
+                                <li>Бонус - фокусы бесплатно</li>
+                                <li>Музыкальное сопровождение</li>
+                                <li>Аквагрим и фигурки из шаров всем детям</li>
+                                <li>Мыльные пузыри «Летающее волшебство»</li>
+                            </ul>
+                            <p><strong>1 час 40 мин | до 10 детей</strong></p>
+                            <p style="color: #ff9f1c; font-size: 24px; font-weight: bold; margin: 10px 0;">7300 руб.</p>
+                            <p style="text-decoration: line-through; color: #999;">8000 руб.</p>
+                        </div>
+                    </div>
+
+                    <div class="card promo-card">
+                        <div class="promo-label">ГОТОВЫЙ ПАКЕТ</div>
+                        <div class="card-body">
+                            <h3>ВЕСЕЛЬЕ МАЛЫШАМ</h3>
+                            <ul style="margin: 15px 0; padding-left: 20px;">
+                                <li>Интерактивное действие 1 клоун или персонаж (1 час)</li>
+                                <li>Музыкальное сопровождение</li>
+                                <li>Фигурные шары и аквагрим всем детям</li>
+                                <li>Игры, конкурсы, поздравления</li>
+                                <li>Мыльные пузыри или бумажная пати (40 мин)</li>
+                                <li>Фокусы с животными (40 мин)</li>
+                                <li>Шар сюрприз в подарок</li>
+                            </ul>
+                            <p><strong>от 2ч 10 мин</strong></p>
+                            <p style="color: #ff9f1c; font-size: 24px; font-weight: bold; margin: 10px 0;">15000 руб.</p>
+                            <p style="text-decoration: line-through; color: #999;">18000 руб.</p>
+                            <p style="font-size: 14px; color: #666;">Также доступен за 9500 руб.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- подписка -->
+        <section style="background: #2b3a67; color: #fff; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 28px; margin-bottom: 15px;">Узнавайте о закрытых акциях первыми!</h2>
+                <p style="margin-bottom: 30px; opacity: 0.8;">Подпишитесь на рассылку и получайте эксклюзивные предложения.</p>
+                <form style="max-width: 500px; margin: 0 auto; display: flex; gap: 10px;">
+                    <input type="email" placeholder="Введите ваш Email" required style="flex: 1; padding: 12px; border-radius: 5px; border: none; font-size: 16px;">
+                    <button type="submit" class="btn">Подписаться</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- подвал -->
+    <footer id="contacts">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h3>Праздник в каждый дом</h3>
+                <p>Подарим волшебство для Ваших детей!</p>
+            </div>
+            <div class="footer-col">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="#locations">Локации</a></li>
+                    <li><a href="#promos">Акции</a></li>
+                    <li><a href="booking.html">Бронирование</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Контакты</h3>
+                <p>Телефон: <strong>8 (800) 222-35-35</strong></p>
+                <p>Режим работы: Ежедневно с 9:00 до 21:00</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
